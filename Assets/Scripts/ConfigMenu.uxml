@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Coding/MainMenuUSS.uss?fileID=7433441132597879392&amp;guid=c1ea11d4924e62e408ba1bd3532f2958&amp;type=3#MainMenuUSS" />
+    <ui:VisualElement name="Fundo" style="flex-grow: 1; width: 100%; height: 100%; background-color: rgba(255, 0, 0, 0); background-image: url(&quot;project://database/Assets/Sprites/Steampunk/UI_Pack__0068_iron_panel_nobolt.png?fileID=2800000&amp;guid=0bd2b7f58b51222479858139dc9b457d&amp;type=3#UI_Pack__0068_iron_panel_nobolt&quot;);">
+        <ui:VisualElement name="Caixa" style="flex-grow: 1; width: 80%; height: 80%; background-color: rgb(224, 170, 38); background-image: none; flex-direction: row; align-items: flex-start; justify-content: space-around; margin-top: 10%; margin-right: 10%; margin-bottom: 10%; margin-left: 10%; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; border-left-color: rgb(255, 244, 238); border-right-color: rgb(255, 244, 238); border-top-color: rgb(255, 244, 238); border-bottom-color: rgb(255, 244, 238); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px;">
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="Button" class="button" style="background-image: url(&quot;project://database/Assets/Sprites/Toon/Back.png?fileID=2800000&amp;guid=cc860883a86d59045bdd8a044eecff5f&amp;type=3#Back&quot;); justify-content: space-around; left: 0; position: absolute;" />
+            <ui:VisualElement style="flex-grow: 1;" />
+            <ui:VisualElement style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
