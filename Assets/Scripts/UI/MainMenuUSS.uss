@@ -1,0 +1,83 @@
+.button {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: auto;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    background-image: none;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    width: 150px;
+    height: 150px;
+    color: rgb(27, 27, 27);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.button:active {
+    scale: 0.9 0.9;
+    -unity-background-image-tint-color: rgb(120, 120, 120);
+}
+
+Slider Label {
+    display: none;
+    visibility: visible;
+    overflow: visible;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+Slider {
+    flex-direction: column;
+    background-image: none;
+    width: 100%;
+    display: flex;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-top: 50px;
+    margin-right: 0;
+    margin-bottom: 50px;
+    margin-left: 0;
+}
+
+Slider VisualElement {
+    background-image: none;
+    width: 90%;
+}
+
+Slider #unity-tracker {
+    background-image: url("project://database/Assets/Imagens/Puzzle%20stage%20&%20settings%20GUI%20Pack/Image_blue/bar%20box.png?fileID=2800000&guid=bb9ac4b8e354b784aab1e598640e292a&type=3#bar box");
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    -unity-slice-scale: 1px;
+    top: 20px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+Slider #unity-dragger {
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("project://database/Assets/Imagens/Puzzle%20stage%20&%20settings%20GUI%20Pack/Image_blue/candy%20bar.png?fileID=2800000&guid=f5ac41725f3de384eac4944f2f414994&type=3#candy bar");
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    width: 70px;
+    height: 70px;
+    margin-right: 0;
+    top: 15px;
+    right: auto;
+}
