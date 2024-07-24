@@ -1,98 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SwipeControls : MonoBehaviour
+public class SwipeMovement : MonoBehaviour
 {
-    #region Instance
-    private static SwipeControls instance;
-    public static SwipeControls Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<SwipeControls>();
-                if (instance == null)
-                {
-                    instance = new GameObject("Spawned SwipeControls", typeof(SwipeControls)).GetComponent<SwipeControls>();
-                }
-            }
-
-            return instance;
-        }
-        set
-        {
-            instance = value;
-        }
-    }
-    #endregion
-
-    private float deadzone = 5f;
-
-    public bool swipeleft, swiperight;
-    private Vector2 swipedelta, starttouch;
-    private float lasttap;
-    private float sqrdeadzone;
-
-    #region public properties
-    public Vector2 Swipedelta { get { return swipedelta; } }
-    public bool Swipeleft { get { return swipeleft; } }
-    public bool Swiperight { get { return swiperight; } }
-    #endregion
+    public float moveSpeed = 10f;
+    public SpawnManager spawnManager;
 
     private void Start()
     {
-        sqrdeadzone = deadzone * deadzone;
+
     }
 
-    public void LateUpdate()
+    private void Update()
     {
-        swipeleft = swiperight = false;
+        float hMoviment = Input.GetAxis("Horizontal") * moveSpeed / 2;
+        float vMoviment = Input.GetAxis("Vertical") * moveSpeed;
 
-        UpdateMobile();
+        transform.Translate(new Vector3(hMoviment,0, vMoviment) * Time.deltaTime);
     }
 
-    public void UpdateMobile()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.touches.Length != 0)
-        {
-            if (Input.touches[0].phase == TouchPhase.Began)
-            {
-                starttouch = Input.mousePosition;               
-                Debug.Log(Time.time - lasttap);
-                lasttap = Time.time;
-            }
-            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
-            {
-                starttouch = swipedelta = Vector2.zero;
-            }
-        }
-
-        swipedelta = Vector2.zero;
-
-        if(starttouch != Vector2.zero && Input.touches.Length != 0)
-        {
-            swipedelta = Input.touches[0].position - starttouch;
-        }
-
-        if(swipedelta.sqrMagnitude > sqrdeadzone)
-        {
-            float x = swipedelta.x;
-            float y = swipedelta.y;
-            if (Mathf.Abs(x) > Mathf.Abs(y))
-            {
-                if (x < 0)
-                {
-                    swipeleft = true;
-                }
-                else
-                {
-                    swiperight = true;
-                }
-            }           
-            starttouch = swipedelta = Vector2.zero;
-        }
+        spawnManager.TriggerEntered();
     }
+
+
 
 }
