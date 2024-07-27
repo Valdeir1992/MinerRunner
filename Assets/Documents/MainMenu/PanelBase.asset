@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 19101, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: PanelBase
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Documents/MainMenu/PanelBase.asset
   themeUss: {fileID: -4733365628477956816, guid: 74ae3eae5480ccd4fa254f448115c4f1, type: 3}
+=======
+  themeUss: {fileID: -4733365628477956816, guid: d8513b38ddd2d574688beeff12f62503, type: 3}
+>>>>>>> ui:Assets/Scripts/PanelSetUI.asset
   m_TargetTexture: {fileID: 0}
   m_ScaleMode: 2
   m_ReferenceSpritePixelsPerUnit: 100
