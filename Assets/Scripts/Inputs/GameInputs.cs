@@ -57,9 +57,9 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Left"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""45b863c0-d97e-4571-ac12-f607f62d95b1"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -87,6 +87,24 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""0f7d6e10-87d1-4360-ad95-e5099bcdd2d9"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PrimaryTouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""281cbf31-22ed-4c3c-a5ee-0997b3b2e778"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PrimaryPositionTouch"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""7d864db1-5229-41ef-844b-91fc20d4242c"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -158,6 +176,28 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ecbb04d2-199f-4cdc-a3d6-71edb65fd508"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""359122df-4843-48ea-99d6-f1a64dfca6bc"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrimaryPositionTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -173,6 +213,8 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         m_Gameplay_Right = m_Gameplay.FindAction("Right", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
+        m_Gameplay_PrimaryTouch = m_Gameplay.FindAction("PrimaryTouch", throwIfNotFound: true);
+        m_Gameplay_PrimaryPositionTouch = m_Gameplay.FindAction("PrimaryPositionTouch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -284,6 +326,8 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Right;
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Crouch;
+    private readonly InputAction m_Gameplay_PrimaryTouch;
+    private readonly InputAction m_Gameplay_PrimaryPositionTouch;
     public struct GameplayActions
     {
         private @GameInputs m_Wrapper;
@@ -292,6 +336,8 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         public InputAction @Right => m_Wrapper.m_Gameplay_Right;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Crouch => m_Wrapper.m_Gameplay_Crouch;
+        public InputAction @PrimaryTouch => m_Wrapper.m_Gameplay_PrimaryTouch;
+        public InputAction @PrimaryPositionTouch => m_Wrapper.m_Gameplay_PrimaryPositionTouch;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -313,6 +359,12 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @Crouch.started += instance.OnCrouch;
             @Crouch.performed += instance.OnCrouch;
             @Crouch.canceled += instance.OnCrouch;
+            @PrimaryTouch.started += instance.OnPrimaryTouch;
+            @PrimaryTouch.performed += instance.OnPrimaryTouch;
+            @PrimaryTouch.canceled += instance.OnPrimaryTouch;
+            @PrimaryPositionTouch.started += instance.OnPrimaryPositionTouch;
+            @PrimaryPositionTouch.performed += instance.OnPrimaryPositionTouch;
+            @PrimaryPositionTouch.canceled += instance.OnPrimaryPositionTouch;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -329,6 +381,12 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @Crouch.started -= instance.OnCrouch;
             @Crouch.performed -= instance.OnCrouch;
             @Crouch.canceled -= instance.OnCrouch;
+            @PrimaryTouch.started -= instance.OnPrimaryTouch;
+            @PrimaryTouch.performed -= instance.OnPrimaryTouch;
+            @PrimaryTouch.canceled -= instance.OnPrimaryTouch;
+            @PrimaryPositionTouch.started -= instance.OnPrimaryPositionTouch;
+            @PrimaryPositionTouch.performed -= instance.OnPrimaryPositionTouch;
+            @PrimaryPositionTouch.canceled -= instance.OnPrimaryPositionTouch;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -356,5 +414,7 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         void OnRight(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
+        void OnPrimaryTouch(InputAction.CallbackContext context);
+        void OnPrimaryPositionTouch(InputAction.CallbackContext context);
     }
 }

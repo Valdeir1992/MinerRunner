@@ -9,6 +9,7 @@ public class SwipeMovement : MonoBehaviour
     private int desiredLane = 1; // 0 = esquerda, 1 = meio, 2 = direita
     public float laneDistance = 4f; // Distância entre as lanes
 
+  
     private void Start()
     {
         _gameinputs = new GameInputs();
@@ -19,7 +20,7 @@ public class SwipeMovement : MonoBehaviour
     /// <summary>
     /// Move o personagem para esqueda.
     /// </summary>
-    /// <param name="context">Receve o contexto do InputSystem</param>
+    /// <param name="context">Recebe o contexto do InputSystem</param>
     /// <exception cref="NotImplementedException"></exception>
     private void MoveToLeft(InputAction.CallbackContext context)
     {
