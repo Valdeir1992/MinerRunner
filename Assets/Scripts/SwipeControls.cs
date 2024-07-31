@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,9 +10,7 @@ public class SwipeMovement : MonoBehaviour
     private GameInputs _gameinputs;
     private int desiredLane = 1; // 0 = esquerda, 1 = meio, 2 = direita
     public float laneDistance = 4f; // Distância entre as lanes
-
-  
-    private void Start()
+     private void Start()
     {
         _gameinputs = new GameInputs();
         _gameinputs.Gameplay.Enable();
@@ -61,4 +61,6 @@ public class SwipeMovement : MonoBehaviour
     {
         spawnManager.TriggerEntered();
     }
+
+
 }

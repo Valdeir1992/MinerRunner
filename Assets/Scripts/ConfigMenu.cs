@@ -8,6 +8,14 @@ using System;
 
 public class ConfigMenu : MonoBehaviour
 {
+    //para conseguir instanciar ele no Menu Principal
+    public static ConfigMenu instance; 
+    private void Awake()
+    {
+        instance = this;
+    }
+
+
     //Slider Volume
     private void Start()
     {
