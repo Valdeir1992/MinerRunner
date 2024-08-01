@@ -13,14 +13,13 @@ public class SwipeMovement : MonoBehaviour
     private int desiredLane = 1; // 0 = esquerda, 1 = meio, 2 = direita
     public float laneDistance = 4f; // Distância entre as lanes
 
+    
     public Vector3 jump;
-    public float jumpHeight = 5f; // Altura do pulo
-
     public Vector3 crouch;
-    public float crouchForce = 1f; // O quanto o player abaixa
-
-    public bool isGrounded;
+    public bool isGrounded = false;
     private Rigidbody rb;
+    public float forcapulo = 2.0f;
+    public float massa = 6.0f;
 
 
     private void Start()
@@ -34,8 +33,8 @@ public class SwipeMovement : MonoBehaviour
 
         // Definindo jump e crouch
         rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0f, 1f, 0f);
-        crouch = new Vector3(0f, -1f, 0f);
+        rb.mass = massa;
+      
     }
 
     /// <summary>
@@ -67,46 +66,6 @@ public class SwipeMovement : MonoBehaviour
         }
         Debug.Log("Direita");
     }
-
-    // Definindo isGrounded
-    private void OnCollisionEnter()
-    {
-        isGrounded = true;
-    }
-
-    private void OnCollisionExit()
-    {
-        isGrounded = false;
-    }
-
-    /// <summary>
-    /// Personagem pula.
-    /// </summary>
-    /// <param name="context">Recebe o contexto do InputSystem</param>
-    private void Jump(InputAction.CallbackContext context)
-    {
-
-        if (isGrounded == true)
-        {
-            rb.AddForce(jump * jumpHeight, ForceMode.Impulse);
-            isGrounded = false;
-            Debug.Log("Pulando");
-        }
-
-
-    }
-
-    private void Crouch(InputAction.CallbackContext context)
-    {
-        if (isGrounded == true)
-        {
-            rb.AddForce(crouch * crouchForce);
-            isGrounded = false;
-        }
-        Debug.Log("Abaixar");
-
-    }
-
     private void Update()
     {
         // Calcular a nova posição com base na lane desejada
@@ -115,6 +74,9 @@ public class SwipeMovement : MonoBehaviour
 
         // Atualizar a posição do jogador
         transform.position = targetPosition;
+
+        //rigidbody
+        rb.AddForce(Vector3.up * forcapulo, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -122,6 +84,44 @@ public class SwipeMovement : MonoBehaviour
         spawnManager.TriggerEntered();
     }
 
+    /// <summary>
+    /// Personagem pula.
+    /// </summary>
+    /// <param name="context">Recebe o contexto do InputSystem</param>
+    /// 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isGrounded = true;
+        
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+
+            isGrounded = false;
+    }
+
+    private void Jump(InputAction.CallbackContext context)
+    {
+        if (isGrounded == true)
+        {
+            rb.AddForce(Vector3.up * forcapulo, ForceMode.Impulse);
+        }
+        Debug.Log("Pular");
+
+    }
+
+    private void Crouch(InputAction.CallbackContext context)
+    {
+        if (isGrounded == true)
+        {
+            rb.AddForce(crouch, ForceMode.Impulse);
+            isGrounded = false;
+        }
+        Debug.Log("Abaixar");
+
+    }
 
 
 }

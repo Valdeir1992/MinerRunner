@@ -39,7 +39,7 @@ public class TouchManager : MonoBehaviour
 
         if (Mathf.Abs(delta.y) > swipeResistance)
         {
-            direction.y = Mathf.Clamp(delta.x, -1, 1);
+            direction.y = Mathf.Clamp(delta.y, -1, 1);
         }
 
         if (direction != Vector2.zero & swipePerformed != null)
