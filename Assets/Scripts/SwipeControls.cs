@@ -11,17 +11,22 @@ public class SwipeMovement : MonoBehaviour
     private GameInputs _gameinputs;
 
     private int desiredLane = 1; // 0 = esquerda, 1 = meio, 2 = direita
-    public float laneDistance = 4f; // Distância entre as lanes
+    public float laneDistance = 3f; // Distância entre as lanes
 
-    
-    public Vector3 jump;
-    public Vector3 crouch;
-    public bool isGrounded = false;
+    //Jump
+    [SerializeField] private float forcaPulo = 7.0f;
+    private bool isGrounded;
     private Rigidbody rb;
-    public float forcapulo = 2.0f;
-    public float massa = 6.0f;
+
+    //Crouch
+    [SerializeField] private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
+    private Vector3 normalScale = new Vector3(1, 1, 1);
+    private bool isStanding;
 
 
+    //Para as animações
+    private bool isJumping;
+  
     private void Start()
     {
         _gameinputs = new GameInputs();
@@ -30,11 +35,12 @@ public class SwipeMovement : MonoBehaviour
         _gameinputs.Gameplay.Left.started += MoveToLeft;
         _gameinputs.Gameplay.Jump.started += Jump;
         _gameinputs.Gameplay.Crouch.started += Crouch;
+        _gameinputs.Gameplay.Crouch.canceled += CrouchCanceled;
 
-        // Definindo jump e crouch
+        // Definindo rigidbody
         rb = GetComponent<Rigidbody>();
-        rb.mass = massa;
-      
+
+
     }
 
     /// <summary>
@@ -75,8 +81,6 @@ public class SwipeMovement : MonoBehaviour
         // Atualizar a posição do jogador
         transform.position = targetPosition;
 
-        //rigidbody
-        rb.AddForce(Vector3.up * forcapulo, ForceMode.Impulse);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -89,7 +93,8 @@ public class SwipeMovement : MonoBehaviour
     /// </summary>
     /// <param name="context">Recebe o contexto do InputSystem</param>
     /// 
-
+    
+    //Checando colisão com o Apoio
     private void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
@@ -98,28 +103,49 @@ public class SwipeMovement : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-
-            isGrounded = false;
+        isGrounded = false;
     }
 
+    //Pulo
     private void Jump(InputAction.CallbackContext context)
     {
-        if (isGrounded == true)
+        if
+            (isGrounded == true)
         {
-            rb.AddForce(Vector3.up * forcapulo, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
+            //Player.animator.SetBool("isJumping", true);
+            //isJumping = true;
         }
         Debug.Log("Pular");
 
     }
 
+    //Agachar
     private void Crouch(InputAction.CallbackContext context)
     {
+        isStanding = false;
+
         if (isGrounded == true)
         {
-            rb.AddForce(crouch, ForceMode.Impulse);
-            isGrounded = false;
+            transform.localScale = crouchScale;
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+            rb.constraints = RigidbodyConstraints.FreezePositionX; //Não funciona
         }
         Debug.Log("Abaixar");
+
+    }
+
+    private void CrouchCanceled(InputAction.CallbackContext context)
+    {
+        isStanding = false;
+
+        if (isGrounded == true)
+        {
+            transform.localScale = normalScale;
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            rb.constraints = RigidbodyConstraints.None; //Não funciona
+        }
+        Debug.Log("Levantar");
 
     }
 

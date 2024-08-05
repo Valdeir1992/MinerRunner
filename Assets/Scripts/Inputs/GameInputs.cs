@@ -57,9 +57,9 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Left"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""45b863c0-d97e-4571-ac12-f607f62d95b1"",
-                    ""expectedControlType"": """",
+                    ""type"": ""Button"",
+                    ""id"": ""c4ad7941-3542-4016-b022-a6cdb080946d"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -90,53 +90,35 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""PrimaryTouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""281cbf31-22ed-4c3c-a5ee-0997b3b2e778"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""PrimaryPositionTouch"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""7d864db1-5229-41ef-844b-91fc20d4242c"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""02c34d4f-3881-4be9-8a2b-7b8fa5b5bbd7"",
+                    ""id"": ""4c87a85d-b915-4676-bbed-dd1d308bf1a2"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49cd54fc-ec3a-4e9f-944d-4d2be3a2008b"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""484a895d-b278-464c-916d-d68fed66909f"",
                     ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""79c9c0dd-00fa-4aa6-9213-96724b2dbf89"",
-                    ""path"": ""<DualShockGamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""adebd4b8-cf2f-4a66-846d-96db62ec6e4b"",
-                    ""path"": ""<XInputController>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -154,72 +136,6 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2dbc35ff-1fed-44e6-b6c1-d9b3927555f7"",
-                    ""path"": ""<DualShockGamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""73dc88d3-2270-4121-a034-c19ed930d110"",
-                    ""path"": ""<XInputController>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ecbb04d2-199f-4cdc-a3d6-71edb65fd508"",
-                    ""path"": ""<Touchscreen>/primaryTouch/press"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryTouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""359122df-4843-48ea-99d6-f1a64dfca6bc"",
-                    ""path"": ""<Touchscreen>/primaryTouch/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PrimaryPositionTouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4c87a85d-b915-4676-bbed-dd1d308bf1a2"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""49cd54fc-ec3a-4e9f-944d-4d2be3a2008b"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -235,8 +151,6 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         m_Gameplay_Right = m_Gameplay.FindAction("Right", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
-        m_Gameplay_PrimaryTouch = m_Gameplay.FindAction("PrimaryTouch", throwIfNotFound: true);
-        m_Gameplay_PrimaryPositionTouch = m_Gameplay.FindAction("PrimaryPositionTouch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -348,8 +262,6 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Right;
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Crouch;
-    private readonly InputAction m_Gameplay_PrimaryTouch;
-    private readonly InputAction m_Gameplay_PrimaryPositionTouch;
     public struct GameplayActions
     {
         private @GameInputs m_Wrapper;
@@ -358,8 +270,6 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         public InputAction @Right => m_Wrapper.m_Gameplay_Right;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Crouch => m_Wrapper.m_Gameplay_Crouch;
-        public InputAction @PrimaryTouch => m_Wrapper.m_Gameplay_PrimaryTouch;
-        public InputAction @PrimaryPositionTouch => m_Wrapper.m_Gameplay_PrimaryPositionTouch;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -381,12 +291,6 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @Crouch.started += instance.OnCrouch;
             @Crouch.performed += instance.OnCrouch;
             @Crouch.canceled += instance.OnCrouch;
-            @PrimaryTouch.started += instance.OnPrimaryTouch;
-            @PrimaryTouch.performed += instance.OnPrimaryTouch;
-            @PrimaryTouch.canceled += instance.OnPrimaryTouch;
-            @PrimaryPositionTouch.started += instance.OnPrimaryPositionTouch;
-            @PrimaryPositionTouch.performed += instance.OnPrimaryPositionTouch;
-            @PrimaryPositionTouch.canceled += instance.OnPrimaryPositionTouch;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -403,12 +307,6 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
             @Crouch.started -= instance.OnCrouch;
             @Crouch.performed -= instance.OnCrouch;
             @Crouch.canceled -= instance.OnCrouch;
-            @PrimaryTouch.started -= instance.OnPrimaryTouch;
-            @PrimaryTouch.performed -= instance.OnPrimaryTouch;
-            @PrimaryTouch.canceled -= instance.OnPrimaryTouch;
-            @PrimaryPositionTouch.started -= instance.OnPrimaryPositionTouch;
-            @PrimaryPositionTouch.performed -= instance.OnPrimaryPositionTouch;
-            @PrimaryPositionTouch.canceled -= instance.OnPrimaryPositionTouch;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -436,7 +334,5 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
         void OnRight(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
-        void OnPrimaryTouch(InputAction.CallbackContext context);
-        void OnPrimaryPositionTouch(InputAction.CallbackContext context);
     }
 }
