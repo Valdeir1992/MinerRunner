@@ -113,8 +113,7 @@ public class SwipeMovement : MonoBehaviour
             (isGrounded == true)
         {
             rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
-            //Player.animator.SetBool("isJumping", true);
-            //isJumping = true;
+            
         }
         Debug.Log("Pular");
 
@@ -129,7 +128,8 @@ public class SwipeMovement : MonoBehaviour
         {
             transform.localScale = crouchScale;
             transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
-            rb.constraints = RigidbodyConstraints.FreezePositionX; //Não funciona
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+           
         }
         Debug.Log("Abaixar");
 
@@ -143,7 +143,7 @@ public class SwipeMovement : MonoBehaviour
         {
             transform.localScale = normalScale;
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-            rb.constraints = RigidbodyConstraints.None; //Não funciona
+            rb.constraints = RigidbodyConstraints.None;
         }
         Debug.Log("Levantar");
 
