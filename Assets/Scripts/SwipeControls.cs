@@ -25,7 +25,8 @@ public class SwipeMovement : MonoBehaviour
 
 
     //Para as animações
-    private bool isJumping;
+    Animator animator;
+    
   
     private void Start()
     {
@@ -37,8 +38,9 @@ public class SwipeMovement : MonoBehaviour
         _gameinputs.Gameplay.Crouch.started += Crouch;
         _gameinputs.Gameplay.Crouch.canceled += CrouchCanceled;
 
-        // Definindo rigidbody
+        // Definindo componentes
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
 
 
     }
@@ -113,8 +115,9 @@ public class SwipeMovement : MonoBehaviour
             (isGrounded == true)
         {
             rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
-            
+
         }
+
         Debug.Log("Pular");
 
     }
@@ -129,7 +132,7 @@ public class SwipeMovement : MonoBehaviour
             transform.localScale = crouchScale;
             transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
             rb.constraints = RigidbodyConstraints.FreezeRotation;
-           
+
         }
         Debug.Log("Abaixar");
 

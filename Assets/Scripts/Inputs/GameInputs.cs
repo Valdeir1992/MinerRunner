@@ -108,7 +108,7 @@ public partial class @GameInputs: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""49cd54fc-ec3a-4e9f-944d-4d2be3a2008b"",
                     ""path"": ""<Keyboard>/s"",
-                    ""interactions"": ""Press(behavior=1)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Crouch"",
