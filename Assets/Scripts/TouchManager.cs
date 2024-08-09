@@ -59,6 +59,7 @@ public class TouchManager : MonoBehaviour
 
         // Atualizar a posição do jogador
         transform.position = targetPosition;
+        
 
         if (fingerDown == false && Input.touchCount > 0 && Input.touches[0].phase == UnityEngine.TouchPhase.Began)
         {
@@ -66,7 +67,7 @@ public class TouchManager : MonoBehaviour
             fingerDown = true;
         }
 
-        if (fingerDown)
+        if (fingerDown == true)
         {
 
             //Pulo
@@ -124,11 +125,11 @@ public class TouchManager : MonoBehaviour
         }
 
         //Fim do toque
-        if (fingerDown && Input.touchCount > 0 && Input.touches[0].phase == UnityEngine.TouchPhase.Ended)
+        if (fingerDown == false && Input.touchCount > 0 && Input.touches[0].phase == UnityEngine.TouchPhase.Ended)
         {
             fingerDown = false;
             transform.localScale = normalScale; //Resetar escala por causa do crouch
-            transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z); //Resetar posição por causa do crouch
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z); //Resetar posição por causa do crouch
             rb.constraints = RigidbodyConstraints.None; //Resetar constrains por causa do jump e o crouch
         }
 
