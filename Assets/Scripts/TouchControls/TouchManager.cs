@@ -2,47 +2,61 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class TouchManager : MonoBehaviour
 {
-    public static TouchManager instance;
-    
-    public delegate void Swipe(Vector2 direction);
-    
-    public event Swipe swipePerformed;
+    public GameObject player;
+    public Vector2 startPosition; //Primeira posição do toque na tela
+    public int swipeResistence = 200; //Quantidade mínima para considerar toque como swipe
+    private bool fingerDown; //Checa se o dedo está encostando na tela
 
-    [SerializeField] private InputAction position, press;
-
-    [SerializeField] private float swipeResistance = 100;
-
-    private Vector2 initialPosition;
-    private Vector2 currentPosition => position.ReadValue<Vector2>();
-    private void Awake ()
+    void Update () 
     {
-        position.Enable();
-        press.Enable();
-        press.performed += _ => { initialPosition = currentPosition; };
-        press.canceled += _ => DetectSwipe();
-
-        instance = this;
-    }
-
-    private void DetectSwipe()
-    {
-        Vector2 delta = currentPosition - initialPosition;
-        Vector2 direction = Vector2.zero;
-
-        if(Mathf.Abs(delta.x) > swipeResistance)
+        if (fingerDown == false && Input.touchCount > 0 && Input.touches[0].phase == UnityEngine.TouchPhase.Began)
         {
-            direction.x = Mathf.Clamp(delta.x, -1, 1);
+            startPosition = Input.touches[0].position; //Primeira posição é primeiro toque
+            fingerDown = true;
         }
 
-        if (Mathf.Abs(delta.y) > swipeResistance)
+        if (fingerDown)
         {
-            direction.y = Mathf.Clamp(delta.y, -1, 1);
+            
+            //Pulo
+            if (Input.touches[0].position.y >= startPosition.y + swipeResistence)
+            {
+                fingerDown = false;
+                Debug.Log("Swipe Up");
+            }
+                       
+            //Crouch
+            else if (Input.touches[0].position.y <= startPosition.y - swipeResistence)
+            {
+                fingerDown = false;
+                Debug.Log("Swipe Down");
+            }
+
+            //Direita
+            else if (Input.touches[0].position.x >= startPosition.x + swipeResistence)
+            {
+                fingerDown = false;
+                Debug.Log("Swipe Right");
+            }
+
+            //Esquerda
+            else if (Input.touches[0].position.x <= startPosition.x - swipeResistence)
+           {
+               fingerDown = false;
+               Debug.Log("Swipe Left");
+           }
+
+           
         }
 
-        if (direction != Vector2.zero & swipePerformed != null)
-            swipePerformed(direction);
+        //Fim do toque
+        if (fingerDown && Input.touchCount > 0 && Input.touches[0].phase == UnityEngine.TouchPhase.Ended)
+        {
+            fingerDown = false;
+        }
     }
 }

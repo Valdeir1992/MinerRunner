@@ -35,6 +35,7 @@ public class SwipeMovement : MonoBehaviour
         _gameinputs.Gameplay.Right.started += MoveToRight;
         _gameinputs.Gameplay.Left.started += MoveToLeft;
         _gameinputs.Gameplay.Jump.started += Jump;
+        _gameinputs.Gameplay.Jump.canceled += JumpCanceled;
         _gameinputs.Gameplay.Crouch.started += Crouch;
         _gameinputs.Gameplay.Crouch.canceled += CrouchCanceled;
 
@@ -115,10 +116,24 @@ public class SwipeMovement : MonoBehaviour
             (isGrounded == true)
         {
             rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
 
         }
 
         Debug.Log("Pular");
+
+    }
+    private void JumpCanceled(InputAction.CallbackContext context)
+    {
+        if
+            (isGrounded == true)
+        {
+            rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
+            rb.constraints = RigidbodyConstraints.None;
+
+        }
+
+        Debug.Log("Voltar");
 
     }
 
