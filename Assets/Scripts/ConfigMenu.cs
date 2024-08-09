@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 using Unity.Audio;
 using static UnityEditor.Recorder.OutputPath;
 using System;
+using UnityEngine.SceneManagement;
 
 public class ConfigMenu : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class ConfigMenu : MonoBehaviour
         var root = GetComponent<UIDocument>().rootVisualElement;
         var slider = root.Q<Slider>();
         SetFillSlider(slider);
+
+        root.Q<Button>("BT_Voltar").clicked += () => SceneManager.LoadSceneAsync(0);
     }
 
     /// <summary>

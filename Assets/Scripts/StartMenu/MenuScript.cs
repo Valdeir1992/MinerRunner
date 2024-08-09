@@ -11,7 +11,7 @@ public class MenuScript : MonoBehaviour
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
-        root.Q<Button>("BT_Config").clicked += async () => InstantiateAsync(_startMenuPrefab); //NÃO FUNCIONA
+        root.Q<Button>("BT_Config").clicked += async () => InstantiateAsync(_startMenuPrefab);
         root.Q<Button>("BT_Play").clicked += () => SceneManager.LoadSceneAsync(1);
        
     }

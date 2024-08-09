@@ -21,7 +21,7 @@ public class SwipeMovement : MonoBehaviour
     //Crouch
     [SerializeField] private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
     private Vector3 normalScale = new Vector3(1, 1, 1);
-    private bool isStanding;
+    
 
 
     //Para as animações
@@ -112,8 +112,7 @@ public class SwipeMovement : MonoBehaviour
     //Pulo
     private void Jump(InputAction.CallbackContext context)
     {
-        if
-            (isGrounded == true)
+        if (isGrounded == true)
         {
             rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
             rb.constraints = RigidbodyConstraints.FreezeRotation;
@@ -125,8 +124,7 @@ public class SwipeMovement : MonoBehaviour
     }
     private void JumpCanceled(InputAction.CallbackContext context)
     {
-        if
-            (isGrounded == true)
+        if (isGrounded == true)
         {
             rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
             rb.constraints = RigidbodyConstraints.None;
@@ -140,8 +138,7 @@ public class SwipeMovement : MonoBehaviour
     //Agachar
     private void Crouch(InputAction.CallbackContext context)
     {
-        isStanding = false;
-
+     
         if (isGrounded == true)
         {
             transform.localScale = crouchScale;
@@ -155,8 +152,7 @@ public class SwipeMovement : MonoBehaviour
 
     private void CrouchCanceled(InputAction.CallbackContext context)
     {
-        isStanding = false;
-
+    
         if (isGrounded == true)
         {
             transform.localScale = normalScale;
