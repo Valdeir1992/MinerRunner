@@ -9,6 +9,10 @@ TagManager:
   - ScreenCamera
   - cockpit_capitalLaser
   - SpawnCaminho
+  - Undefined
+  - easy
+  - medium
+  - hard
   layers:
   - Default
   - TransparentFX
