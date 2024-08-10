@@ -2,24 +2,23 @@ using UnityEngine;
 
 public class MapSectionScroller : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Velocidade de movimento no eixo Z
-    public float resetPositionZ = -250f; // Posição Z que determina quando reciclar o trecho
-    private MapPool mapPool;
+    public float moveSpeed = 10f; // Velocidade de movimentação dos mapas
+    private Transform playerTransform; // Referência ao jogador ou câmera
 
-    void Start()
+    private void Start()
     {
-        mapPool = FindObjectOfType<MapPool>(); // Encontra a instância do MapPool
+        playerTransform = Camera.main.transform; // Obtém a referência à câmera principal
     }
 
     void Update()
     {
-        // Move o trecho no eixo Z
+        // Mover o trecho no eixo Z
         transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
 
-        // Verifica se o trecho passou do ponto de reset
-        if (transform.position.z < resetPositionZ)
+        // Verifica se o trecho está fora do campo de visão
+        if (transform.position.z < playerTransform.position.z - 50f) // Ajuste conforme necessário
         {
-            mapPool.RecycleSection(this.gameObject);
+            MapPool.Instance.RecycleSection(gameObject);
         }
     }
 }

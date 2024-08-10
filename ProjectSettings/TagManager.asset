@@ -13,6 +13,7 @@ TagManager:
   - easy
   - medium
   - hard
+  - barrier
   layers:
   - Default
   - TransparentFX

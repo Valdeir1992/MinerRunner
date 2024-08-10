@@ -9,7 +9,7 @@ public class CoinSpawner : MonoBehaviour
     public float spawnHeight = 1f; // Altura no eixo Y para spawn
     public int coinsPerRow = 3; // Número de moedas por fileira
     public float distanceBetweenCoins = 1f; // Distância entre as moedas na fileira
-    private float[] lanes = new float[] { -2f, 0f, 2f }; // Posições X para as três linhas
+    private float[] lanes = new float[] { -2.8f, 0f, 3.1f }; // Posições X para as três linhas
 
     private void Start()
     {

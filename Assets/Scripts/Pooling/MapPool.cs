@@ -3,35 +3,73 @@ using System.Collections.Generic;
 
 public class MapPool : MonoBehaviour
 {
-    public GameObject[] sectionPrefabs;
-    public float sectionLength = 5f;
-    public float additionalSpace = 1f;
+    public static MapPool Instance; // Singleton para acesso global
+    public GameObject[] allMapPrefabs; // Todos os prefabs dos mapas
+    public float prefabSize = 50f; // Tamanho de cada trecho do mapa
+    public float additionalSpace = 5f; // Espaço adicional entre trechos
 
-    private Queue<GameObject> sectionQueue = new Queue<GameObject>();
+    private Queue<GameObject> mapQueue = new Queue<GameObject>(); // Fila para gerenciar os trechos
 
-    void Start()
+    private void Awake()
     {
-        InitializeSections();
-    }
-
-    void InitializeSections()
-    {
-        float currentZPosition = 0f;
-        foreach (var prefab in sectionPrefabs)
+        if (Instance == null)
         {
-            GameObject instance = Instantiate(prefab, new Vector3(0, 0, currentZPosition), Quaternion.Euler(-90, 0, 0));
-            sectionQueue.Enqueue(instance);
-            currentZPosition += sectionLength + additionalSpace;
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
         }
     }
 
+    void Start()
+    {
+        InitializeMapPool();
+        SpawnInitialMaps();
+    }
+
+    // Inicializa a pool com os prefabs
+    void InitializeMapPool()
+    {
+        float currentZPosition = 0f;
+        foreach (var prefab in allMapPrefabs)
+        {
+            GameObject instance = Instantiate(prefab, new Vector3(0, 0, currentZPosition), Quaternion.Euler(-90, 0, 0));
+            instance.SetActive(false); // Desativa o trecho até que seja necessário
+            mapQueue.Enqueue(instance);
+            currentZPosition += (prefabSize + additionalSpace);
+        }
+    }
+
+    // Ativa os primeiros dois trechos na fila
+    void SpawnInitialMaps()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            if (mapQueue.Count > 0)
+            {
+                GameObject mapToSpawn = mapQueue.Dequeue();
+                mapToSpawn.SetActive(true);
+                mapQueue.Enqueue(mapToSpawn);
+            }
+        }
+    }
+
+    // Recicla o trecho do mapa que saiu de vista
     public void RecycleSection(GameObject section)
     {
-        // Reposiciona o trecho no final da fila
-        sectionQueue.Dequeue();
-        float lastSectionZ = sectionQueue.Peek().transform.position.z;
-        float newPositionZ = lastSectionZ + sectionLength + additionalSpace;
+        mapQueue.Dequeue(); // Remove o trecho atual da fila
+        section.SetActive(false); // Desativa o trecho que saiu de vista
+
+        // Calcula a nova posição para o trecho reciclado
+        float lastSectionZ = mapQueue.Peek().transform.position.z;
+        float newPositionZ = lastSectionZ - (prefabSize + additionalSpace);
+
         section.transform.position = new Vector3(0, 0, newPositionZ);
-        sectionQueue.Enqueue(section);
+        section.SetActive(true);
+
+        // Reenfileira o trecho reciclado no final da fila
+        mapQueue.Enqueue(section);
     }
 }
