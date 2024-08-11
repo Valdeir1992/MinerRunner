@@ -7,6 +7,7 @@ public class MapPool : MonoBehaviour
     public GameObject[] allMapPrefabs; // Todos os prefabs dos mapas
     public float prefabSize = 50f; // Tamanho de cada trecho do mapa
     public float additionalSpace = 5f; // Espaço adicional entre trechos
+    public float spawnPositionZ = 0f; // Posição exata de spawn para novos trechos
 
     private Queue<GameObject> mapQueue = new Queue<GameObject>(); // Fila para gerenciar os trechos
 
@@ -62,11 +63,8 @@ public class MapPool : MonoBehaviour
         mapQueue.Dequeue(); // Remove o trecho atual da fila
         section.SetActive(false); // Desativa o trecho que saiu de vista
 
-        // Calcula a nova posição para o trecho reciclado
-        float lastSectionZ = mapQueue.Peek().transform.position.z;
-        float newPositionZ = lastSectionZ - (prefabSize + additionalSpace);
-
-        section.transform.position = new Vector3(0, 0, newPositionZ);
+        // Usa a posição de spawn configurada
+        section.transform.position = new Vector3(0, 0, spawnPositionZ);
         section.SetActive(true);
 
         // Reenfileira o trecho reciclado no final da fila

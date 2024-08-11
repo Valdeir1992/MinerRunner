@@ -22,13 +22,12 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         // Singleton setup
-        if (Instance != null)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject); // Manter durante a troca de cenas
 
         // Verificação de segurança
         if (scoreText == null)
@@ -40,6 +39,11 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int points)
     {
         CurrentScore += points; // Atualiza pontuação através da propriedade
+    }
+
+    public void ResetScore()
+    {
+        CurrentScore = 0; // Reinicia a pontuação
     }
 
     private void UpdateScoreText()

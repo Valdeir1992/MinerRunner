@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class CollectibleCoin : MonoBehaviour
 {
+    private float baseMoveSpeed = 15f; // Velocidade base de movimentação das moedas
+    public float speedIncrement = 0.1f; // Incremento fixo da velocidade
+    private float moveSpeed; // Velocidade atual de movimentação das moedas
     private ObjectPool pool;
-    private float moveSpeed; // Velocidade de movimento das moedas
 
     private void Start()
     {
         pool = ObjectPool.Instance; // Obtém a referência do pool
+        moveSpeed = baseMoveSpeed; // Inicializa a velocidade de movimento com a base
     }
 
     private void Update()
@@ -28,24 +31,9 @@ public class CollectibleCoin : MonoBehaviour
 
     private void AdjustMoveSpeed()
     {
-        int score = ScoreManager.Instance.CurrentScore;
-
-        if (score < 1000)
-        {
-            moveSpeed = 10f;
-        }
-        else if (score < 2000)
-        {
-            moveSpeed = 15f;
-        }
-        else if (score < 3000)
-        {
-            moveSpeed = 25f;
-        }
-        else
-        {
-            moveSpeed = 25f + ((score - 3000) / 1000) * 0.5f; // Incremento de 0.5 por cada 1000 pontos acima de 3000
-        }
+        Debug.Log(moveSpeed);
+        // Incrementa a velocidade base a cada atualização
+        moveSpeed += speedIncrement * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)

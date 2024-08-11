@@ -7,6 +7,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 public class TouchManager : MonoBehaviour
 {
     //Variáveis para o touch
+    private Animator animator;
     public GameObject player;
     public Vector2 startPosition; //Primeira posição do toque na tela
     public int swipeResistence = 200; //Quantidade mínima para considerar toque como swipe
@@ -26,23 +27,34 @@ public class TouchManager : MonoBehaviour
     [SerializeField] private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
     private Vector3 normalScale = new Vector3(1, 1, 1);
 
+    //Som
+    [SerializeField] private AudioSource som;
+    [SerializeField] private AudioClip somPulo;
+    [SerializeField] private AudioClip somCarrinho; //Ainda não chamei no código
+    [SerializeField] private float volume = 5f;
+
 
 
     private void Start()
     {
         // Definindo componentes
         rb = GetComponent<Rigidbody>();
+
+        animator = GetComponent<Animator>();
+
+
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        spawnManager.TriggerEntered();
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    spawnManager.TriggerEntered();
+    //}
 
     //Checando colisão com o Apoio
     private void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
+
 
     }
 
@@ -60,7 +72,6 @@ public class TouchManager : MonoBehaviour
         // Atualizar a posição do jogador
         transform.position = targetPosition;
 
-
         if (fingerDown == false && Input.touchCount > 0 && Input.touches[0].phase == UnityEngine.TouchPhase.Began)
         {
             startPosition = Input.touches[0].position; //Primeira posição é primeiro toque
@@ -77,8 +88,12 @@ public class TouchManager : MonoBehaviour
                 {
                     rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
                     rb.constraints = RigidbodyConstraints.FreezeRotation;
+                    animator.SetBool("isJumping", true);
+                    animator.SetBool("IsJumpingcar", true);
                 }
                 fingerDown = false;
+
+                som.PlayOneShot(somPulo, volume);
                 Debug.Log("Swipe Up");
             }
 
@@ -90,6 +105,8 @@ public class TouchManager : MonoBehaviour
                     transform.localScale = crouchScale;
                     transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
                     rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+                    animator.SetBool("abaixar", true);
                 }
                 fingerDown = false;
                 Debug.Log("Swipe Down");
@@ -131,6 +148,9 @@ public class TouchManager : MonoBehaviour
             transform.localScale = normalScale; //Resetar escala por causa do crouch
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z); //Resetar posição por causa do crouch
             rb.constraints = RigidbodyConstraints.None; //Resetar constrains por causa do jump e o crouch
+            animator.SetBool("abaixar", false);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("IsJumpingcar", false);
         }
 
 
@@ -138,5 +158,3 @@ public class TouchManager : MonoBehaviour
     }
 
 }
-
-
