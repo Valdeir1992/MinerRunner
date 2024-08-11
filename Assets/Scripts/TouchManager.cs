@@ -26,14 +26,23 @@ public class TouchManager : MonoBehaviour
     //Crouch
     [SerializeField] private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
     private Vector3 normalScale = new Vector3(1, 1, 1);
-    
+
+    //Som
+    [SerializeField] private AudioSource som;
+    [SerializeField] private AudioClip somPulo; 
+    [SerializeField] private AudioClip somCarrinho; //Ainda não chamei no código
+    [SerializeField] private float volume = 5f;
+
 
 
     private void Start()
     {
         // Definindo componentes
         rb = GetComponent<Rigidbody>();
+
         animator = GetComponent<Animator>();
+
+  
     }
 
     //private void OnTriggerEnter(Collider other)
@@ -63,7 +72,6 @@ public class TouchManager : MonoBehaviour
         // Atualizar a posição do jogador
         transform.position = targetPosition;
         
-
         if (fingerDown == false && Input.touchCount > 0 && Input.touches[0].phase == UnityEngine.TouchPhase.Began)
         {
             startPosition = Input.touches[0].position; //Primeira posição é primeiro toque
@@ -84,6 +92,8 @@ public class TouchManager : MonoBehaviour
                     animator.SetBool("IsJumpingcar", true);
                 }
                 fingerDown = false;
+
+                som.PlayOneShot(somPulo, volume);
                 Debug.Log("Swipe Up");
             }
 
@@ -143,7 +153,7 @@ public class TouchManager : MonoBehaviour
             animator.SetBool("IsJumpingcar", false);
         }
 
-
+        
 
     }
 
