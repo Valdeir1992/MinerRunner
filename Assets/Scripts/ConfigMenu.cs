@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Unity.Audio;
-using static UnityEditor.Recorder.OutputPath;
 using System;
 
 public class ConfigMenu : MonoBehaviour

@@ -1040,11 +1040,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: f4ffdc2e-ff15-4028-a192-7855409f33e1
+  cloudProjectId: 5b9aa364-ed00-455d-995a-b27fcfae34be
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: MinerRunner
-  organizationId: marina-evangelista
+  organizationId: luizguilhermenycholas
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
