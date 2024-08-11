@@ -36,7 +36,7 @@
                 {
                     "name": "Left",
                     "type": "Button",
-                    "id": "45b863c0-d97e-4571-ac12-f607f62d95b1",
+                    "id": "c4ad7941-3542-4016-b022-a6cdb080946d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -73,30 +73,30 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "02c34d4f-3881-4be9-8a2b-7b8fa5b5bbd7",
+                    "id": "4c87a85d-b915-4676-bbed-dd1d308bf1a2",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49cd54fc-ec3a-4e9f-944d-4d2be3a2008b",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "484a895d-b278-464c-916d-d68fed66909f",
                     "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "79c9c0dd-00fa-4aa6-9213-96724b2dbf89",
-                    "path": "<DualShockGamepad>/dpad/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "adebd4b8-cf2f-4a66-846d-96db62ec6e4b",
-                    "path": "<XInputController>/dpad/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -108,28 +108,6 @@
                     "name": "",
                     "id": "04290e49-3d60-4958-89b0-4d5f9654ad2e",
                     "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2dbc35ff-1fed-44e6-b6c1-d9b3927555f7",
-                    "path": "<DualShockGamepad>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Right",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "73dc88d3-2270-4121-a034-c19ed930d110",
-                    "path": "<XInputController>/dpad/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
