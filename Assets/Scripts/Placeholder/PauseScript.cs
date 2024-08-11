@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PauseManager : MonoBehaviour
+public class PauseScript : MonoBehaviour
 {
     public GameObject pauseMenuUI; // Referência ao menu de pausa
     private bool isPaused = false; // Estado de pausa

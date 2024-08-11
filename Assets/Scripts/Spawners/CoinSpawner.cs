@@ -7,7 +7,7 @@ public class CoinSpawner : MonoBehaviour
     public float spawnInterval = 2.0f; // Intervalo entre spawn das fileiras
     public float spawnDistance = 30f; // Distância inicial para spawn das moedas no eixo Z (aumente conforme necessário)
     public float spawnHeight = 1f; // Altura no eixo Y para spawn
-    public int coinsPerRow = 3; // Número de moedas por fileira
+    public int coinsPerRow = 10; // Número de moedas por fileira
     public float distanceBetweenCoins = 1f; // Distância entre as moedas na fileira
     private float[] lanes = new float[] { -2.8f, 0f, 3.1f }; // Posições X para as três linhas
 

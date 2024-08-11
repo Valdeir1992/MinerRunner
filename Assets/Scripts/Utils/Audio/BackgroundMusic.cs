@@ -5,14 +5,20 @@ using UnityEngine;
 public class BackgroundMusic : MonoBehaviour
 {
 
+    [Header("----- Audio Source-----")]
     [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource cartSource;
 
-    public AudioClip music;
+    [Header("----- Audio Clip-----")]
+    public AudioClip backgroundMusic;
+    public AudioClip cartSfx;
 
     private void Start()
     {
-        musicSource.clip = music;
+        musicSource.clip = backgroundMusic;
+        cartSource.clip = cartSfx;
         musicSource.Play();
+        cartSource.Play();
     }
 
 }
