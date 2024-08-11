@@ -7,6 +7,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 public class TouchManager : MonoBehaviour
 {
     //Variáveis para o touch
+    private Animator animator;
     public GameObject player;
     public Vector2 startPosition; //Primeira posição do toque na tela
     public int swipeResistence = 200; //Quantidade mínima para considerar toque como swipe
@@ -32,17 +33,19 @@ public class TouchManager : MonoBehaviour
     {
         // Definindo componentes
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        spawnManager.TriggerEntered();
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    spawnManager.TriggerEntered();
+    //}
 
     //Checando colisão com o Apoio
     private void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
+   
 
     }
 
@@ -77,6 +80,8 @@ public class TouchManager : MonoBehaviour
                 {
                     rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
                     rb.constraints = RigidbodyConstraints.FreezeRotation;
+                    animator.SetBool("isJumping", true);
+                    animator.SetBool("IsJumpingcar", true);
                 }
                 fingerDown = false;
                 Debug.Log("Swipe Up");
@@ -90,6 +95,8 @@ public class TouchManager : MonoBehaviour
                     transform.localScale = crouchScale;
                     transform.position = new Vector3(transform.position.x, transform.position.y -0.5f, transform.position.z);
                     rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+                    animator.SetBool("abaixar", true);
                 }
                 fingerDown = false;
                 Debug.Log("Swipe Down");
@@ -131,6 +138,9 @@ public class TouchManager : MonoBehaviour
             transform.localScale = normalScale; //Resetar escala por causa do crouch
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z); //Resetar posição por causa do crouch
             rb.constraints = RigidbodyConstraints.None; //Resetar constrains por causa do jump e o crouch
+            animator.SetBool("abaixar", false);
+            animator.SetBool("isJumping", false);
+            animator.SetBool("IsJumpingcar", false);
         }
 
 
