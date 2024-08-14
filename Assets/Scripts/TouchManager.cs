@@ -29,7 +29,7 @@ public class TouchManager : MonoBehaviour
 
     //Som
     [SerializeField] private AudioSource som;
-    [SerializeField] private AudioClip somPulo;
+    [SerializeField] private AudioClip somPulo; 
     [SerializeField] private AudioClip somCarrinho; //Ainda não chamei no código
     [SerializeField] private float volume = 5f;
 
@@ -42,7 +42,7 @@ public class TouchManager : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-
+  
     }
 
     //private void OnTriggerEnter(Collider other)
@@ -54,7 +54,7 @@ public class TouchManager : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
-
+   
 
     }
 
@@ -71,7 +71,7 @@ public class TouchManager : MonoBehaviour
 
         // Atualizar a posição do jogador
         transform.position = targetPosition;
-
+        
         if (fingerDown == false && Input.touchCount > 0 && Input.touches[0].phase == UnityEngine.TouchPhase.Began)
         {
             startPosition = Input.touches[0].position; //Primeira posição é primeiro toque
@@ -103,7 +103,7 @@ public class TouchManager : MonoBehaviour
                 if (isGrounded == true)
                 {
                     transform.localScale = crouchScale;
-                    transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+                    transform.position = new Vector3(transform.position.x, transform.position.y -0.5f, transform.position.z);
                     rb.constraints = RigidbodyConstraints.FreezeRotation;
 
                     animator.SetBool("abaixar", true);
@@ -153,8 +153,10 @@ public class TouchManager : MonoBehaviour
             animator.SetBool("IsJumpingcar", false);
         }
 
-
+        
 
     }
 
 }
+
+
