@@ -4,31 +4,34 @@ using UnityEngine;
 
 public class CoinSpawner : MonoBehaviour
 {
-    public float spawnInterval = 2.0f; // Intervalo entre spawn das fileiras
-    public float spawnDistance = 30f; // Distância inicial para spawn das moedas no eixo Z (aumente conforme necessário)
-    public float spawnHeight = 1f; // Altura no eixo Y para spawn
-    public int coinsPerRow = 10; // Número de moedas por fileira
-    public float distanceBetweenCoins = 1f; // Distância entre as moedas na fileira
-    private float[] lanes = new float[] { -2.8f, 0f, 3.1f }; // Posições X para as três linhas
+    private ObjectPool<CollectibleCoin> _coinPooling;
+    [SerializeField] private GameObject _coinPrefab;
+   [SerializeField] private CoinSpawnerDataSO _spawerSO;
 
+   private void Awake(){
+    _coinPooling = new ObjectPool<CollectibleCoin>();
+    _coinPooling.InitializePool(_coinPrefab);
+   }
     private void Start()
     {
-        InvokeRepeating("SpawnCoinRow", 0f, spawnInterval);
+        InvokeRepeating("SpawnCoinRow", 0f, _spawerSO.SpawnInterval);
     }
 
     private void SpawnCoinRow()
     {
         // Escolhe aleatoriamente uma linha para spawn
-        float laneX = lanes[Random.Range(0, lanes.Length)];
+        float laneX = _spawerSO.Lanes[Random.Range(0, _spawerSO.Lanes.Length)];
 
-        for (int i = 0; i < coinsPerRow; i++)
+        for (int i = 0; i < _spawerSO.CoinsPerRow; i++)
         {
-            GameObject coin = ObjectPool.Instance.GetFromPool();
+            CollectibleCoin coin = _coinPooling.GetFromPool();
+            coin.OnRealeaser += ()=> _coinPooling.ReturnToPool(coin);
+            
 
-            // Calcula a posição de cada moeda na fileira
-            float zOffset = i * distanceBetweenCoins;
-            Vector3 spawnPosition = new Vector3(laneX, spawnHeight, Camera.main.transform.position.z + spawnDistance + zOffset);
+            // Calcula a posiï¿½ï¿½o de cada moeda na fileira
+            float zOffset = i * _spawerSO.DistanceBetweenCoins;
+            Vector3 spawnPosition = new Vector3(laneX, _spawerSO.SpawnHeight, Camera.main.transform.position.z + _spawerSO.SpawnDistance + zOffset);
             coin.transform.position = spawnPosition;
         }
-    }
+    } 
 }

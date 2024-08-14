@@ -1,17 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CollectibleCoin : MonoBehaviour
 {
-    private float baseMoveSpeed = 15f; // Velocidade base de movimentação das moedas
+    public Action OnRealeaser;
+    private float baseMoveSpeed = 15f; // Velocidade base de movimentaï¿½ï¿½o das moedas
     public float speedIncrement = 0.1f; // Incremento fixo da velocidade
-    private float moveSpeed; // Velocidade atual de movimentação das moedas
-    private ObjectPool pool;
+    private float moveSpeed; // Velocidade atual de movimentaï¿½ï¿½o das moedas 
 
     private void Start()
-    {
-        pool = ObjectPool.Instance; // Obtém a referência do pool
+    { 
         moveSpeed = baseMoveSpeed; // Inicializa a velocidade de movimento com a base
     }
 
@@ -23,16 +23,16 @@ public class CollectibleCoin : MonoBehaviour
         transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
 
         // Retorna a moeda ao pool se ela sair da tela
-        if (transform.position.z < Camera.main.transform.position.z - 10) // Ajuste conforme necessário
+        if (transform.position.z < Camera.main.transform.position.z - 10) // Ajuste conforme necessï¿½rio
         {
-            pool.ReturnToPool(gameObject);
+           Release();
         }
     }
 
     private void AdjustMoveSpeed()
     {
         Debug.Log(moveSpeed);
-        // Incrementa a velocidade base a cada atualização
+        // Incrementa a velocidade base a cada atualizaï¿½ï¿½o
         moveSpeed += speedIncrement * Time.deltaTime;
     }
 
@@ -40,10 +40,14 @@ public class CollectibleCoin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Aumenta a pontuação
+            // Aumenta a pontuaï¿½ï¿½o
             ScoreManager.Instance.AddScore(100);
             // Retorna o objeto ao pool
-            pool.ReturnToPool(gameObject);
+           Release();
         }
+    }
+    private void Release(){
+        OnRealeaser?.Invoke();
+        OnRealeaser = null;
     }
 }
