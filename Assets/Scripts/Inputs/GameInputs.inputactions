@@ -4,66 +4,26 @@
         {
             "name": "Menu",
             "id": "767a74d9-addc-47ae-a182-03807f280b7a",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "c299f6f4-aa3e-4eea-81ef-e9be5d23d7d6",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "7b2703a5-90b4-4218-bd29-fa8bddf41737",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
+            "actions": [],
+            "bindings": []
         },
         {
             "name": "Gameplay",
             "id": "8693e1cc-5cd3-4cdc-acd9-d68351339be1",
             "actions": [
                 {
-                    "name": "Left",
-                    "type": "Button",
-                    "id": "c4ad7941-3542-4016-b022-a6cdb080946d",
-                    "expectedControlType": "Button",
+                    "name": "Swipe",
+                    "type": "Value",
+                    "id": "78d389ee-1ef0-45c5-81fb-911668589e43",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "Right",
+                    "name": "Touch",
                     "type": "Button",
-                    "id": "627e1dff-4987-4287-9122-b2d89e1e71fe",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "463f9111-76d8-4c8a-8e98-b6698698de69",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Crouch",
-                    "type": "Button",
-                    "id": "0f7d6e10-87d1-4360-ad95-e5099bcdd2d9",
+                    "id": "39d74be9-bebf-4a5c-8fd7-7721e1ce9019",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -73,45 +33,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "4c87a85d-b915-4676-bbed-dd1d308bf1a2",
-                    "path": "<Keyboard>/w",
+                    "id": "fe5756dc-3885-4e36-8b09-9958bedd2481",
+                    "path": "<Touchscreen>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "Swipe",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "49cd54fc-ec3a-4e9f-944d-4d2be3a2008b",
-                    "path": "<Keyboard>/s",
+                    "id": "56ccf44c-0a16-4472-9967-09e346f6e22d",
+                    "path": "<Touchscreen>/Press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Crouch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "484a895d-b278-464c-916d-d68fed66909f",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "04290e49-3d60-4958-89b0-4d5f9654ad2e",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Right",
+                    "action": "Touch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

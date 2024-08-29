@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public Action OnDie;
+    public Action<int> OnTakeDamage;
     public int maxHealth = 100;
-    private int currentHealth;
-    public GameOverManager gameOverManager; // Referência ao GameOverManager
+    private int currentHealth; 
 
     private void Start()
     {
@@ -13,9 +15,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        Debug.Log("Player took damage: " + damage + ". Current health: " + currentHealth);
-
+        currentHealth -= damage; 
+        OnTakeDamage?.Invoke(currentHealth);
         if (currentHealth <= 0)
         {
             Die();
@@ -25,6 +26,6 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player died!");
-        gameOverManager.ShowGameOver();
+        OnDie?.Invoke();
     }
 }
