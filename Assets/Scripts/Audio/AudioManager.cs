@@ -5,12 +5,19 @@ using FMODUnity;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] EventReference gameBegin;
-    [SerializeField] GameObject player;
+    public static AudioManager instance { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        if(instance != null)
+        { Debug.LogError("Mais de um Audio Manager na cena");
+        };
+
+        instance = this;
+    }
+
+    public void PlayOneShot (EventReference sound, Vector3 worldPos)
+    {
+        RuntimeManager.PlayOneShot(sound, worldPos);
     }
 }

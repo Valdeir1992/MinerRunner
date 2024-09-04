@@ -56,6 +56,8 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
         if(_isGrounded && !_isJumping){ 
             _rb.AddForce(Vector3.up * JUMP_FORCE,ForceMode.Impulse);
             StartCoroutine(Coroutine_JumpCooldown());
+
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.jumpSFX, this.transform.position); //testar
         } 
     }
     private IEnumerator Coroutine_JumpCooldown(){
@@ -93,6 +95,7 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     public void TakeDamage(int damage)
     {
         _playerHealth.TakeDamage(damage);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.takeDamageSFX, this.transform.position); //testar
     }
 }
 public interface IPlayerMediator{
