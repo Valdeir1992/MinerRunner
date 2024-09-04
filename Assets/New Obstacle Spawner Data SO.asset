@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: New Obstacle Spawner Data SO
   m_EditorClassIdentifier: 
   _lanes: feffffff0000000002000000
-  _spawnInterval: 12
+  _spawnInterval: 5
   _spawnHeight: 1
-  _spawnDistance: 10
+  _spawnDistance: 40

@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.SceneManagement;
-using static UnityEditor.Recorder.OutputPath;
+using UnityEngine.SceneManagement; 
 
 public class MenuScript : MonoBehaviour
 {
