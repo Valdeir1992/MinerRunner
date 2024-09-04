@@ -26,6 +26,7 @@ public class CollectibleCoin : MonoBehaviour
     }
     private void Release(){
         OnRealease?.Invoke();
+        OnCollect = null;
         OnRealease = null;
     }
 }

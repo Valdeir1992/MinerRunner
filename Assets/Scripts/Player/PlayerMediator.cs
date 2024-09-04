@@ -12,9 +12,10 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     private bool _canChangeLane = true;
     public bool _isGrounded;
     private bool _isJumping;
+    private bool _isInvulnerable;
     private Rigidbody _rb;
     private PlayerHealth _playerHealth;
-    [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private LayerMask _groundLayer; 
 
     private void Awake(){
         _rb = GetComponent<Rigidbody>();
@@ -58,6 +59,14 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
             StartCoroutine(Coroutine_JumpCooldown());
         } 
     }
+    #region POWER UPs 
+    public IEnumerator Coroutine_PowerUPs(IPowerUp  powerUp){
+        yield return powerUp.Apply(this);
+    }
+    public void ToggleInvulnerability(bool status){
+        _isInvulnerable = status;
+    }
+    #endregion
     private IEnumerator Coroutine_JumpCooldown(){
         _isJumping = true;
         yield return new WaitUntil(()=>!_isGrounded);
@@ -92,6 +101,9 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
 
     public void TakeDamage(int damage)
     {
+        if(_isInvulnerable)
+            return;
+        StartCoroutine(FindAnyObjectByType<GameplayManager>().Coroutine_CameraShake(2,damage));
         _playerHealth.TakeDamage(damage);
     }
 }

@@ -3,47 +3,40 @@ using TMPro; // Uso do TextMeshPro para UI
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance; // Singleton instance
-    public TextMeshProUGUI scoreText; // Componente UI para mostrar a pontuação
+    [SerializeField] private TextMeshProUGUI _scoreGameplayView; 
+    public TextMeshProUGUI scoreText; // Componente UI para mostrar a pontuaï¿½ï¿½o
 
-    private int score = 0; // Variável privada para armazenar a pontuação
+    private int score = 0; // Variï¿½vel privada para armazenar a pontuaï¿½ï¿½o
 
-    // Propriedade pública para acessar a pontuação
+    // Propriedade pï¿½blica para acessar a pontuaï¿½ï¿½o
     public int CurrentScore
     {
         get { return score; }
         private set
         {
             score = value;
-            UpdateScoreText(); // Atualiza o texto da UI sempre que a pontuação mudar
+            UpdateScoreText(); // Atualiza o texto da UI sempre que a pontuaï¿½ï¿½o mudar
         }
     }
 
     private void Awake()
     {
-        // Singleton setup
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-
-        // Verificação de segurança
+        
         if (scoreText == null)
         {
-            Debug.LogError("ScoreManager: scoreText não está atribuído no inspetor!");
+            Debug.LogError("ScoreManager: scoreText nï¿½o estï¿½ atribuï¿½do no inspetor!");
         }
-    }
+    } 
 
     public void AddScore(int points)
     {
-        CurrentScore += points; // Atualiza pontuação através da propriedade
+        CurrentScore += points; // Atualiza pontuaï¿½ï¿½o atravï¿½s da propriedade
+        _scoreGameplayView.SetText($"Score: {CurrentScore:D6}");
     }
 
     public void ResetScore()
     {
-        CurrentScore = 0; // Reinicia a pontuação
+        CurrentScore = 0; // Reinicia a pontuaï¿½ï¿½o
     }
 
     private void UpdateScoreText()

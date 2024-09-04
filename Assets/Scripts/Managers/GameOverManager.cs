@@ -13,21 +13,14 @@ public class GameOverManager : MonoBehaviour
     public void ShowGameOver()
     {
         gameOverPanel.SetActive(true);
-        // Pausar o jogo se necessário
+        // Pausar o jogo se necessï¿½rio
         Time.timeScale = 0f;
     }
 
     public void RestartGame()
     {
         // Reiniciar o jogo
-        Time.timeScale = 1f;
-
-        // Reiniciar a pontuação
-        if (ScoreManager.Instance != null)
-        {
-            Debug.Log("Reset score chamado no Game Over Manager...");
-            ScoreManager.Instance.ResetScore();
-        }
+        Time.timeScale = 1f; 
 
         // Recarregar a cena atual
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

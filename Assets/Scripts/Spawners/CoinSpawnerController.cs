@@ -28,6 +28,7 @@ public class CoinSpawnerController : MonoBehaviour
     }
     public IEnumerator Coroutine_Spawn()
     {
+        var scoreManager = FindAnyObjectByType<ScoreManager>();
         yield return new WaitForSeconds(_spawerSO.SpawnInterval);
         // Escolhe aleatoriamente uma linha para spawn
         float laneX = _spawerSO.Lanes[Random.Range(0, _spawerSO.Lanes.Length)];
@@ -36,6 +37,7 @@ public class CoinSpawnerController : MonoBehaviour
         {
             CollectibleCoin coin = _coinPooling.GetFromPool();
             _currentCoins.Add(coin);
+            coin.OnCollect += ()=> scoreManager.AddScore(10);
             coin.OnRealease += ()=>{
                  _coinPooling.ReturnToPool(coin);
                  _currentCoins.Remove(coin);
