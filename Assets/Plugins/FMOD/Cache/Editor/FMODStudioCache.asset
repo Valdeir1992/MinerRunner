@@ -1,5 +1,274 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9211065745636684210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/menu_music
+  m_EditorClassIdentifier: 
+  Path: event:/Music/menu_music
+  Guid:
+    Data1: -1524523029
+    Data2: 1180004766
+    Data3: -1921871973
+    Data4: -2119885521
+  Banks:
+  - {fileID: -2315858382686549916}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 114626
+--- !u!114 &-8699583766710704557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Character/coin_sound
+  m_EditorClassIdentifier: 
+  Path: event:/Character/coin_sound
+  Guid:
+    Data1: -794283272
+    Data2: 1082588206
+    Data3: -888990789
+    Data4: -570022502
+  Banks:
+  - {fileID: 1563143263160474882}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 575
+--- !u!114 &-7625056211136013110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambiance.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Ambiance.strings.bank
+  Name: Ambiance.strings
+  StudioPath: bank:/Ambiance.strings
+  lastModified: 638611483428123169
+  FileSizes:
+  - Name: Desktop
+    Value: 1400
+  Exists: 1
+--- !u!114 &-6303844773242903699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Character/mining_cart_rolling
+  m_EditorClassIdentifier: 
+  Path: event:/Character/mining_cart_rolling
+  Guid:
+    Data1: 2050430916
+    Data2: 1177262767
+    Data3: 1318352318
+    Data4: -1437618582
+  Banks:
+  - {fileID: 1563143263160474882}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 57000
+--- !u!114 &-6287103731523495556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/wood_crashing_sound
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/wood_crashing_sound
+  Guid:
+    Data1: 1225255480
+    Data2: 1119811466
+    Data3: 1250924180
+    Data4: 731859030
+  Banks:
+  - {fileID: -512979188954016442}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1179
+--- !u!114 &-4876355867245688618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/UI.bank
+  Name: UI
+  StudioPath: bank:/UI
+  lastModified: 638611483476461472
+  FileSizes:
+  - Name: Desktop
+    Value: 56704
+  Exists: 1
+--- !u!114 &-3444503032262283950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/falling_rocks_sound
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/falling_rocks_sound
+  Guid:
+    Data1: -2007626591
+    Data2: 1095038749
+    Data3: -630048578
+    Data4: -1231703267
+  Banks:
+  - {fileID: -512979188954016442}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2650
+--- !u!114 &-2466199586305698979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/sfx_start_game
+  m_EditorClassIdentifier: 
+  Path: event:/UI/sfx_start_game
+  Guid:
+    Data1: -25246713
+    Data2: 1078608862
+    Data3: 1939926180
+    Data4: -735512229
+  Banks:
+  - {fileID: -4876355867245688618}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2315858382686549916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638611483475047282
+  FileSizes:
+  - Name: Desktop
+    Value: 2430624
+  Exists: 1
+--- !u!114 &-512979188954016442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambiance.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Ambiance.bank
+  Name: Ambiance
+  StudioPath: bank:/Ambiance
+  lastModified: 638611483428103247
+  FileSizes:
+  - Name: Desktop
+    Value: 1039456
+  Exists: 1
+--- !u!114 &-7851213341504510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Character/cart_jump_sound
+  m_EditorClassIdentifier: 
+  Path: event:/Character/cart_jump_sound
+  Guid:
+    Data1: 1065613864
+    Data2: 1280186256
+    Data3: -1002396484
+    Data4: 674146737
+  Banks:
+  - {fileID: 1563143263160474882}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 780
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,10 +281,128 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: -7625056211136013110}
+  - {fileID: -512979188954016442}
+  - {fileID: 1563143263160474882}
+  - {fileID: -2315858382686549916}
+  - {fileID: -4876355867245688618}
+  EditorEvents:
+  - {fileID: -6287103731523495556}
+  - {fileID: -3444503032262283950}
+  - {fileID: -7851213341504510}
+  - {fileID: -6303844773242903699}
+  - {fileID: -8699583766710704557}
+  - {fileID: 5792436440109280883}
+  - {fileID: -9211065745636684210}
+  - {fileID: -2466199586305698979}
+  - {fileID: 4828122736117813945}
+  - {fileID: 2889396193077775482}
   EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
-  cacheTime: 0
+  MasterBanks:
+  - {fileID: -512979188954016442}
+  StringsBanks:
+  - {fileID: -7625056211136013110}
+  cacheTime: 638611483476461472
   cacheVersion: 131618
+--- !u!114 &1563143263160474882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Character.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Character.bank
+  Name: Character
+  StudioPath: bank:/Character
+  lastModified: 638611483443856933
+  FileSizes:
+  - Name: Desktop
+    Value: 707168
+  Exists: 1
+--- !u!114 &2889396193077775482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/sfx_UI_back
+  m_EditorClassIdentifier: 
+  Path: event:/UI/sfx_UI_back
+  Guid:
+    Data1: -1434594688
+    Data2: 1121414766
+    Data3: -1614626401
+    Data4: 114595025
+  Banks:
+  - {fileID: -4876355867245688618}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4828122736117813945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/sfx_UI_click
+  m_EditorClassIdentifier: 
+  Path: event:/UI/sfx_UI_click
+  Guid:
+    Data1: 1224874288
+    Data2: 1129049524
+    Data3: 493480635
+    Data4: 1505749742
+  Banks:
+  - {fileID: -4876355867245688618}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5792436440109280883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/loop_music_gameplay
+  m_EditorClassIdentifier: 
+  Path: event:/Music/loop_music_gameplay
+  Guid:
+    Data1: 1146285120
+    Data2: 1301862825
+    Data3: -721566060
+    Data4: -349273760
+  Banks:
+  - {fileID: -2315858382686549916}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 114626

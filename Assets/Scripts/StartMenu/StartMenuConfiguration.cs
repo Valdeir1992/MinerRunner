@@ -9,6 +9,12 @@ public class StartMenuConfiguration : MonoBehaviour
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         var returnButton = root.Q<Button>();
-        returnButton.clicked += () => Destroy(gameObject);
+        returnButton.clicked += ReturnClicked;
     }
+
+    private void ReturnClicked ()
+    {
+        Destroy(gameObject);
+    }
+
 }

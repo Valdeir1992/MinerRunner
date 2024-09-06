@@ -12,12 +12,22 @@ public class MenuScript : MonoBehaviour
     private void Start()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-        
-        root.Q<Button>("BT_Config").clicked += async () => InstantiateAsync(_startMenuPrefab);
-        root.Q<Button>("BT_Play").clicked += () => SceneManager.LoadSceneAsync(1);
 
+        root.Q<Button>("BT_Config").clicked += ConfigClicked;
+        root.Q<Button>("BT_Play").clicked += PlayClicked;
 
     }
 
+    private void ConfigClicked ()
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.buttonSFX, this.transform.position);
+        InstantiateAsync(_startMenuPrefab);
+    }
+
+    private void PlayClicked ()
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.buttonSFX, this.transform.position);
+        SceneManager.LoadSceneAsync(1);
+    }
 
     } 

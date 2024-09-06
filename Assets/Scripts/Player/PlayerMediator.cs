@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Rendering;
+using FMOD.Studio;
 
 public class PlayerMediator : MonoBehaviour, IPlayerMediator
 {
@@ -14,13 +17,18 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     private bool _isJumping;
     private Rigidbody _rb;
     private PlayerHealth _playerHealth;
+    private FMOD.Studio.EventInstance _kartSound;
     [SerializeField] private LayerMask _groundLayer;
 
-    private void Awake(){
+    private void Awake()
+    {
         _rb = GetComponent<Rigidbody>();
         _playerHealth = GetComponent<PlayerHealth>();
+        _kartSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.miningKartSFX);
+
     }
-    private void Update(){
+    private void Update()
+    {
         CheckGround();
     }
     private void OnDrawGizmos(){
@@ -57,7 +65,7 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
             _rb.AddForce(Vector3.up * JUMP_FORCE,ForceMode.Impulse);
             StartCoroutine(Coroutine_JumpCooldown());
 
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.jumpSFX, this.transform.position); //testar
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.jumpSFX, this.transform.position);
         } 
     }
     private IEnumerator Coroutine_JumpCooldown(){
@@ -78,11 +86,13 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
         _currentLane = Mathf.Clamp(_currentLane+1,-1,1);
         Move();
     }
+   
     private void Move(){
-        if(!_canChangeLane)
-            return;
+        if (!_canChangeLane)
+         return;
         transform.position = new Vector3(_currentLane * MOVE_DISTANCE_HORIZONTAL,transform.position.y,transform.position.z);
         StartCoroutine(Coroutine_MoveCooldown());
+        UpdateSound();
     }
 
     private IEnumerator Coroutine_MoveCooldown()
@@ -94,13 +104,29 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
 
     public void TakeDamage(int damage)
     {
-        _playerHealth.TakeDamage(damage);
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.takeDamageSFX, this.transform.position); //testar
+        _playerHealth.TakeDamage(damage);      
+    }
+
+   //UpdateSound() é chamado em Move() mas não está funcionando
+    private void UpdateSound ()
+    {
+        if (_canChangeLane)
+        {
+            PLAYBACK_STATE _playbackState;
+            _kartSound.getPlaybackState(out _playbackState);
+
+            if (_playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                _kartSound.start();
+            }
+            else
+            {
+                _kartSound.stop(STOP_MODE.ALLOWFADEOUT);
+            }
+
+        }
     }
 }
-public interface IPlayerMediator{
-    public void Jump();
-    public void MoveLeft();
-    public void MoveRight();
-    public void Crouch();
-}
+public interface IPlayerMediator { }
+
+
