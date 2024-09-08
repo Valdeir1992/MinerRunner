@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,9 +13,9 @@ public class StartMenuConfiguration : MonoBehaviour
         returnButton.clicked += ReturnClicked;
     }
 
-    private void ReturnClicked ()
+    private async void ReturnClicked ()
     {
-        Destroy(gameObject);
+       Destroy(gameObject);
     }
 
 }

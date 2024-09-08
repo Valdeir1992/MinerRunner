@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 using Unity.Audio;
 using System;
 using UnityEngine.SceneManagement;
+using FMOD.Studio;
 
 public class ConfigMenu : MonoBehaviour
 {
@@ -15,15 +16,19 @@ public class ConfigMenu : MonoBehaviour
         instance = this;
     }
 
-
-    //Slider Volume
     private void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         var slider = root.Q<Slider>();
         SetFillSlider(slider);
 
-        root.Q<Button>("BT_Voltar").clicked += () => SceneManager.LoadSceneAsync(0);
+        root.Q<Button>("BT_Voltar").clicked += VoltarClicked;
+    }
+
+    private void VoltarClicked ()
+    {
+        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position);
+        SceneManager.LoadSceneAsync(0);
     }
 
     /// <summary>

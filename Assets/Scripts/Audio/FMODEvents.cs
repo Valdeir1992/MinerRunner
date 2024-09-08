@@ -14,11 +14,8 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Mining Kart SFX")]
     [field: SerializeField] public EventReference miningKartSFX { get; private set; }
 
-    [field: Header("UI Button SFX")]
-    [field: SerializeField] public EventReference buttonSFX { get; private set; }
-
-    [field: Header("UI Background")]
-    [field: SerializeField] public EventReference uiBackground { get; private set; }
+    [field: Header("Game Background")]
+    [field: SerializeField] public EventReference gameBackground { get; private set; }
 
     public static FMODEvents instance { get; private set; }
     private void Awake ()

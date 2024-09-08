@@ -1959,20 +1959,13 @@ MonoBehaviour:
       Data3: 1318352318
       Data4: -1437618582
     Path: event:/Character/mining_cart_rolling
-  <buttonSFX>k__BackingField:
+  <gameBackground>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <uiBackground>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1146285120
+      Data2: 1301862825
+      Data3: -721566060
+      Data4: -349273760
+    Path: event:/Music/loop_music_gameplay
 --- !u!1 &1571061694
 GameObject:
   m_ObjectHideFlags: 0
