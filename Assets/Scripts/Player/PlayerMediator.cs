@@ -15,6 +15,7 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     private bool _canChangeLane = true;
     public bool _isGrounded;
     private bool _isJumping;
+    private bool _isInvulnerable;
     private Rigidbody _rb;
     private PlayerHealth _playerHealth;
     private FMOD.Studio.EventInstance _kartSound;
@@ -41,7 +42,14 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     {
         _isGrounded = Physics.Raycast(transform.position + Vector3.up * 0.2f,Vector3.down,1,_groundLayer);
     }
-
+ #region POWER UPs 
+    public IEnumerator Coroutine_PowerUPs(IPowerUp  powerUp){
+        yield return powerUp.Apply(this);
+    }
+    public void ToggleInvulnerability(bool status){
+        _isInvulnerable = status;
+    }
+    #endregion
     private void OnEnable(){
         var inputManager = FindAnyObjectByType<TouchManager>();
         inputManager.OnMoveLeft += MoveLeft;
@@ -107,7 +115,7 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
         _playerHealth.TakeDamage(damage);      
     }
 
-   //UpdateSound() é chamado em Move() mas não está funcionando
+   //UpdateSound() ï¿½ chamado em Move() mas nï¿½o estï¿½ funcionando
     private void UpdateSound ()
     {
         if (_canChangeLane)
