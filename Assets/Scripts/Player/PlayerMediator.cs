@@ -20,7 +20,7 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     private void Awake(){
         _rb = GetComponent<Rigidbody>();
         _playerHealth = GetComponent<PlayerHealth>();
-    }
+    } 
     private void Update(){
         CheckGround();
     }
@@ -103,7 +103,7 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     {
         if(_isInvulnerable)
             return;
-        StartCoroutine(FindAnyObjectByType<GameplayManager>().Coroutine_CameraShake(2,damage));
+        StartCoroutine(FindAnyObjectByType<GameplayManager>().Coroutine_CameraShake(2,damage)); 
         _playerHealth.TakeDamage(damage);
     }
 }

@@ -10,4 +10,4 @@ public sealed class ImmortalPowerUp : PowerUp
         yield return new WaitForSeconds(5);
         playerMediator.ToggleInvulnerability(false);
     }
-}
+} 
