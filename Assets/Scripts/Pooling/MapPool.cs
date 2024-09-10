@@ -3,71 +3,78 @@ using System.Collections.Generic;
 
 public class MapPool : MonoBehaviour
 {
-    public static MapPool Instance; // Singleton para acesso global
-    public GameObject[] allMapPrefabs; // Todos os prefabs dos mapas
-    public float prefabSize = 50f; // Tamanho de cada trecho do mapa
-    public float additionalSpace = 5f; // Espaço adicional entre trechos
-    public float spawnPositionZ = 0f; // Posição exata de spawn para novos trechos
+    public static MapPool Instance;
+    public GameObject[] allMapPrefabs;  // Todos os prefabs dos mapas
+    private List<MapInfo> mapInfos = new List<MapInfo>();  // Lista de informações sobre mapas
 
-    private Queue<GameObject> mapQueue = new Queue<GameObject>(); // Fila para gerenciar os trechos
+    [System.Serializable]
+    public class MapInfo
+    {
+        public GameObject mapObject;
+        public float length;  // Comprimento do mapa no eixo Z
+    }
 
-    private void Awake()
+    void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            InitializeMapPool();
         }
         else
         {
             Destroy(gameObject);
-            return;
         }
     }
 
-    void Start()
-    {
-        InitializeMapPool();
-        SpawnInitialMaps();
-    }
-
-    // Inicializa a pool com os prefabs
     void InitializeMapPool()
     {
-        float currentZPosition = 0f;
         foreach (var prefab in allMapPrefabs)
         {
-            GameObject instance = Instantiate(prefab, new Vector3(0, 0, currentZPosition), Quaternion.Euler(-90, 0, 0));
-            instance.SetActive(false); // Desativa o trecho até que seja necessário
-            mapQueue.Enqueue(instance);
-            currentZPosition += (prefabSize + additionalSpace);
+            GameObject mapInstance = Instantiate(prefab, Vector3.zero, Quaternion.Euler(-90, 0, 0));
+            mapInstance.SetActive(false);
+            float mapLength = mapInstance.GetComponent<Renderer>().bounds.size.z; // Assume a orientação correta
+            mapInfos.Add(new MapInfo { mapObject = mapInstance, length = mapLength });
         }
     }
 
-    // Ativa os primeiros dois trechos na fila
-    void SpawnInitialMaps()
+    public void SpawnInitialMaps()
     {
-        for (int i = 0; i < 2; i++)
+        float currentZPosition = 0f;
+        for (int i = 0; i < 2; i++)  // Spawn inicial de dois mapas
         {
-            if (mapQueue.Count > 0)
-            {
-                GameObject mapToSpawn = mapQueue.Dequeue();
-                mapToSpawn.SetActive(true);
-                mapQueue.Enqueue(mapToSpawn);
-            }
+            var mapInfo = mapInfos[i];
+            mapInfo.mapObject.transform.position = new Vector3(0, 0, currentZPosition);
+            mapInfo.mapObject.SetActive(true);
+            // Atualiza a posição Z para o próximo mapa
+            currentZPosition += mapInfo.length;
         }
     }
 
-    // Recicla o trecho do mapa que saiu de vista
-    public void RecycleSection(GameObject section)
+    public void RecycleSection(GameObject map)
     {
-        mapQueue.Dequeue(); // Remove o trecho atual da fila
-        section.SetActive(false); // Desativa o trecho que saiu de vista
+        map.SetActive(false);
+        // Encontrar informações do mapa
+        MapInfo info = mapInfos.Find(m => m.mapObject == map);
+        if (info != null)
+        {
+            // Seleciona um novo mapa aleatoriamente para substituir o mapa reciclado
+            var newMapInfo = mapInfos[Random.Range(0, mapInfos.Count)];
+            float newPositionZ = CalculateNewMapPosition();
+            newMapInfo.mapObject.transform.position = new Vector3(0, 0, newPositionZ);
+            newMapInfo.mapObject.SetActive(true);
+        }
+    }
 
-        // Usa a posição de spawn configurada
-        section.transform.position = new Vector3(0, 0, spawnPositionZ);
-        section.SetActive(true);
-
-        // Reenfileira o trecho reciclado no final da fila
-        mapQueue.Enqueue(section);
+    private float CalculateNewMapPosition()
+    {
+        // Retorna a posição baseado no mapa atualmente visível mais distante
+        float maxZ = 0;
+        foreach (var info in mapInfos)
+        {
+            if (info.mapObject.activeSelf && info.mapObject.transform.position.z < maxZ)
+                maxZ = info.mapObject.transform.position.z - info.length;
+        }
+        return maxZ;
     }
 }
