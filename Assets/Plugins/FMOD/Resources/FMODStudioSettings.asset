@@ -536,8 +536,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/MINERSMASS_RUNNER_VUKI_SFX/MINERSMESS-RUNNER-VUKI.fspro
-  sourceBankPath: ../../../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/MINERSMASS_RUNNER_VUKI_SFX/Build
+  sourceProjectPath: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/MINERSMESS-RUNNER-VUKI.fspro
+  sourceBankPath: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -558,8 +558,12 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks: []
-  Banks: []
+  MasterBanks:
+  - Ambiance
+  Banks:
+  - Character
+  - Music
+  - UI
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

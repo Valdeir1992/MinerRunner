@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Rendering;
+using FMOD.Studio;
 
 public class PlayerMediator : MonoBehaviour, IPlayerMediator
 {
@@ -12,16 +15,20 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     private bool _canChangeLane = true;
     public bool _isGrounded;
     private bool _isJumping;
-    private bool _isInvulnerable;
     private Rigidbody _rb;
     private PlayerHealth _playerHealth;
-    [SerializeField] private LayerMask _groundLayer; 
+    private FMOD.Studio.EventInstance _kartSound;
+    [SerializeField] private LayerMask _groundLayer;
 
-    private void Awake(){
+    private void Awake()
+    {
         _rb = GetComponent<Rigidbody>();
         _playerHealth = GetComponent<PlayerHealth>();
-    } 
-    private void Update(){
+        _kartSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.miningKartSFX);
+
+    }
+    private void Update()
+    {
         CheckGround();
     }
     private void OnDrawGizmos(){
@@ -57,16 +64,10 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
         if(_isGrounded && !_isJumping){ 
             _rb.AddForce(Vector3.up * JUMP_FORCE,ForceMode.Impulse);
             StartCoroutine(Coroutine_JumpCooldown());
+
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.jumpSFX, this.transform.position);
         } 
     }
-    #region POWER UPs 
-    public IEnumerator Coroutine_PowerUPs(IPowerUp  powerUp){
-        yield return powerUp.Apply(this);
-    }
-    public void ToggleInvulnerability(bool status){
-        _isInvulnerable = status;
-    }
-    #endregion
     private IEnumerator Coroutine_JumpCooldown(){
         _isJumping = true;
         yield return new WaitUntil(()=>!_isGrounded);
@@ -85,11 +86,13 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
         _currentLane = Mathf.Clamp(_currentLane+1,-1,1);
         Move();
     }
+   
     private void Move(){
-        if(!_canChangeLane)
-            return;
+        if (!_canChangeLane)
+         return;
         transform.position = new Vector3(_currentLane * MOVE_DISTANCE_HORIZONTAL,transform.position.y,transform.position.z);
         StartCoroutine(Coroutine_MoveCooldown());
+        UpdateSound();
     }
 
     private IEnumerator Coroutine_MoveCooldown()
@@ -101,15 +104,29 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
 
     public void TakeDamage(int damage)
     {
-        if(_isInvulnerable)
-            return;
-        StartCoroutine(FindAnyObjectByType<GameplayManager>().Coroutine_CameraShake(2,damage)); 
-        _playerHealth.TakeDamage(damage);
+        _playerHealth.TakeDamage(damage);      
+    }
+
+   //UpdateSound() é chamado em Move() mas não está funcionando
+    private void UpdateSound ()
+    {
+        if (_canChangeLane)
+        {
+            PLAYBACK_STATE _playbackState;
+            _kartSound.getPlaybackState(out _playbackState);
+
+            if (_playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                _kartSound.start();
+            }
+            else
+            {
+                _kartSound.stop(STOP_MODE.ALLOWFADEOUT);
+            }
+
+        }
     }
 }
-public interface IPlayerMediator{
-    public void Jump();
-    public void MoveLeft();
-    public void MoveRight();
-    public void Crouch();
-}
+public interface IPlayerMediator { }
+
+
