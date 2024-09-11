@@ -20,13 +20,13 @@ public class MenuScript : MonoBehaviour
 
     private void ConfigClicked ()
     {
-        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.buttonSFX, this.transform.position);
+        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.buttonSFX);
         InstantiateAsync(_startMenuPrefab);
     }
 
     private void PlayClicked ()
     {
-        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.playSFX, this.transform.position);
+        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.playSFX);
         SceneManager.LoadSceneAsync(1);
     }
 

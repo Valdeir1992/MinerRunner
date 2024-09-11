@@ -17,7 +17,7 @@ public class CollectibleCoin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Collect();
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.coinCollectSFX, this.transform.position);
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.coinCollectSFX);
         }
         Release();
     }

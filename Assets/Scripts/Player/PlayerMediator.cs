@@ -27,6 +27,10 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
         _kartSound = AudioManager.instance.CreateEventInstance(FMODEvents.instance.miningKartSFX);
 
     }
+    private void Start()
+    {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.miningKartSFX);
+    }
     private void Update()
     {
         CheckGround();
@@ -65,7 +69,7 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
             _rb.AddForce(Vector3.up * JUMP_FORCE,ForceMode.Impulse);
             StartCoroutine(Coroutine_JumpCooldown());
 
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.jumpSFX, this.transform.position);
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.jumpSFX);
         } 
     }
     private IEnumerator Coroutine_JumpCooldown(){
@@ -87,12 +91,13 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
         Move();
     }
    
-    private void Move(){
+    private void Move()
+    {
         if (!_canChangeLane)
          return;
         transform.position = new Vector3(_currentLane * MOVE_DISTANCE_HORIZONTAL,transform.position.y,transform.position.z);
         StartCoroutine(Coroutine_MoveCooldown());
-        UpdateSound();
+        
     }
 
     private IEnumerator Coroutine_MoveCooldown()
@@ -107,25 +112,7 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
         _playerHealth.TakeDamage(damage);      
     }
 
-   //UpdateSound() é chamado em Move() mas não está funcionando
-    private void UpdateSound ()
-    {
-        if (_canChangeLane)
-        {
-            PLAYBACK_STATE _playbackState;
-            _kartSound.getPlaybackState(out _playbackState);
-
-            if (_playbackState.Equals(PLAYBACK_STATE.STOPPED))
-            {
-                _kartSound.start();
-            }
-            else
-            {
-                _kartSound.stop(STOP_MODE.ALLOWFADEOUT);
-            }
-
-        }
-    }
+    
 }
 public interface IPlayerMediator { }
 

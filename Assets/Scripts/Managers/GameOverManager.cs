@@ -1,5 +1,6 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GameOverManager : MonoBehaviour
     private void Start()
     {
         gameOverPanel.SetActive(false);
+    
     }
 
     public void ShowGameOver()

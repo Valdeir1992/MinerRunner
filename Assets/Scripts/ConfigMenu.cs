@@ -6,11 +6,14 @@ using Unity.Audio;
 using System;
 using UnityEngine.SceneManagement;
 using FMOD.Studio;
+using static UnityEditor.Recorder.OutputPath;
 
 public class ConfigMenu : MonoBehaviour
 {
-    //para conseguir instanciar ele no Menu Principal
-    public static ConfigMenu instance; 
+    private Slider sliderMusica;
+    private Slider sliderSFX;
+
+    public static ConfigMenu instance;
     private void Awake()
     {
         instance = this;
@@ -19,38 +22,24 @@ public class ConfigMenu : MonoBehaviour
     private void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
-        var slider = root.Q<Slider>();
-        SetFillSlider(slider);
+        root.Q<Button>("BT_Voltar").clicked += VoltarClicked;     
 
-        root.Q<Button>("BT_Voltar").clicked += VoltarClicked;
     }
 
     private void VoltarClicked ()
     {
-        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position);
+        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX);
         SceneManager.LoadSceneAsync(0);
     }
 
-    /// <summary>
-    /// Adicionar componente de arrastar visualmente no slider
-    /// </summary>
-    /// <param name="volume"></param>
-    private void SetFillSlider(Slider slider)
-    {
-        var container = new VisualElement();
-        container.name = "Visual fill";
-        container.style.position = Position.Absolute;
-        var bar = new VisualElement();
-        container.Add(bar);
-        slider.Add(container);
-        slider.RegisterValueChangedCallback<float>(ctx => 
-        {
-            bar.style.width = Length.Percent(ctx.newValue);
-            Debug.Log(ctx.newValue);
-        });
-    }
     public void SetVolume (float volume)
     {
+        var root = GetComponent<UIDocument>().rootVisualElement;
+        sliderMusica = root.Q<Slider>("VolumeMusica");
+        sliderMusica.value = volume;
+
+        sliderSFX = root.Q<Slider>("VolumeSFX");
+
         Debug.Log(volume);
     }
 

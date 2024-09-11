@@ -6,7 +6,7 @@ using UnityEngine;
 public class UIFMODEvents : MonoBehaviour
 {
     [field: Header("UI Button SFX")]
-    [field: SerializeField] public EventReference buttonSFX { get; private set; }
+    [field: SerializeField] public EventReference buttonSFX { get; private set; } //private?
 
     [field: Header("UI Voltar SFX")]
     [field: SerializeField] public EventReference voltarSFX { get; private set; }

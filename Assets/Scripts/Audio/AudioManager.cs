@@ -24,9 +24,9 @@ public class AudioManager : MonoBehaviour
     {
         StartMusic(FMODEvents.instance.gameBackground);
     }
-    public void PlayOneShot (EventReference sound, Vector3 worldPos)
+    public void PlayOneShot (EventReference sound)
     {
-        RuntimeManager.PlayOneShot(sound, worldPos);
+        RuntimeManager.PlayOneShot(sound);
     }
 
     private void StartMusic (EventReference eventReference)

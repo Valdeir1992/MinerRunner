@@ -27,9 +27,9 @@ public class UIAudioManager : MonoBehaviour
         StartMusic(UIFMODEvents.instance.uiBackground);
     }
 
-    public void PlayOneShot(EventReference sound, Vector3 worldPos)
+    public void PlayOneShot(EventReference sound)
     {
-        RuntimeManager.PlayOneShot(sound, worldPos);
+        RuntimeManager.PlayOneShot(sound);
     }
     public EventInstance CreateEventInstance(EventReference eventReference)
     {
