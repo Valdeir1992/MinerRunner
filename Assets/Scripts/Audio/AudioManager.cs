@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        StartMusic(FMODEvents.instance.gameBackground);
+        StartMusic(FMODEvents.Instance.gameBackground);
     }
     public void PlayOneShot (EventReference sound, Vector3 worldPos)
     {

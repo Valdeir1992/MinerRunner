@@ -17,14 +17,16 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Game Background")]
     [field: SerializeField] public EventReference gameBackground { get; private set; }
 
-    public static FMODEvents instance { get; private set; }
+    public static FMODEvents _instance {get; private set;}
+    public static FMODEvents Instance { get=>_instance;}
     private void Awake ()
     { 
-        if (instance == null)
+        if (Instance == null)
         {
+          _instance = this; 
+        }else if(_instance != this){ 
           Debug.LogError("Mais de um FMODEvents em cena");
+          Destroy(gameObject);
         }
-
-        instance = this; 
     }
 }
