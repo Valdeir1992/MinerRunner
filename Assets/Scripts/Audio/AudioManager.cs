@@ -6,16 +6,19 @@ using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
 {
+    private static AudioManager _instance;
     private List<EventInstance> eventInstances;
-    public static AudioManager instance { get; private set; }
+    public static AudioManager instance { get=>_instance; }
     private EventInstance _eventInstance;
     private void Awake()
     {
-        if(instance != null)
-        { Debug.LogError("Mais de um Audio Manager na cena");
-        };
-
-        instance = this;
+        if(_instance == null)
+        { 
+            _instance = this;
+        }else if(_instance != this){
+            Debug.LogError("Mais de um Audio Manager na cena");
+            Destroy(gameObject);
+        } 
 
         eventInstances = new List<EventInstance> ();
     }

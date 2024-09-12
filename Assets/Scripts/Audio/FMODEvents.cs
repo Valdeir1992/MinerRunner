@@ -26,7 +26,7 @@ public class FMODEvents : MonoBehaviour
           _instance = this; 
         }else if(_instance != this){ 
           Debug.LogError("Mais de um FMODEvents em cena");
-          Destroy(gameObject);
+          Destroy(this);
         }
     }
 }
