@@ -22,7 +22,7 @@ public class GameplayManager : MonoBehaviour
         InvokeRepeating(nameof(this.Spawn),3,10);
         StartCoroutine(Coroutine_SpeedUp());
         StartCoroutine(Coroutine_Distance());
-        FindAnyObjectByType<FadeController>().FadeIn(null);
+        FindAnyObjectByType<FadeController>()?.FadeIn(null);
     }
     private void Spawn(){
         StartCoroutine(_coinSpawner.Coroutine_Spawn());
