@@ -6,11 +6,16 @@ using Unity.Audio;
 using System;
 using UnityEngine.SceneManagement;
 using FMOD.Studio;
+using static UnityEditor.Recorder.OutputPath;
 
 public class ConfigMenu : MonoBehaviour
 {
-    //para conseguir instanciar ele no Menu Principal
-    public static ConfigMenu instance; 
+    public static ConfigMenu instance;
+
+    //Controle de volume
+    [Range(0, 1)] private float musicVolume;
+    
+    
     private void Awake()
     {
         instance = this;
@@ -19,16 +24,30 @@ public class ConfigMenu : MonoBehaviour
     private void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
-        var slider = root.Q<Slider>();
-        SetFillSlider(slider);
 
+        //Button
         root.Q<Button>("BT_Voltar").clicked += VoltarClicked;
+
+       //SetFillSlider(slider);
     }
 
+    private void Update()
+    {
+        SetVolume();
+    }
     private void VoltarClicked ()
     {
         UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position);
         SceneManager.LoadSceneAsync(0);
+    }
+
+    private void SetVolume()
+    {
+        var uxmlSliderMusica = GetComponent<UIDocument>().rootVisualElement.Q<Slider>("VolumeMusica");
+        var uxmlSliderSfx = GetComponent<UIDocument>().rootVisualElement.Q<Slider>("VolumeSFX");
+        Bus.instance.musicVolume = uxmlSliderMusica.value;
+        Bus.instance.sfxVolume = uxmlSliderSfx.value;
+        Bus.instance.SetMusic();
     }
 
     /// <summary>
@@ -49,11 +68,7 @@ public class ConfigMenu : MonoBehaviour
             Debug.Log(ctx.newValue);
         });
     }
-    public void SetVolume (float volume)
-    {
-        Debug.Log(volume);
-    }
-
+  
 
 
 }

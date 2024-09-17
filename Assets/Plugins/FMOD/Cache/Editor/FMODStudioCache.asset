@@ -69,10 +69,10 @@ MonoBehaviour:
   Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Ambiance.strings.bank
   Name: Ambiance.strings
   StudioPath: bank:/Ambiance.strings
-  lastModified: 638616620180061252
+  lastModified: 638621182204718119
   FileSizes:
   - Name: Desktop
-    Value: 1652
+    Value: 1562
   Exists: 1
 --- !u!114 &-6303844773242903699
 MonoBehaviour:
@@ -143,7 +143,7 @@ MonoBehaviour:
   Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 638616620011972846
+  lastModified: 638621182206513290
   FileSizes:
   - Name: Desktop
     Value: 56704
@@ -217,7 +217,7 @@ MonoBehaviour:
   Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638616620011732993
+  lastModified: 638621182206125616
   FileSizes:
   - Name: Desktop
     Value: 2430624
@@ -237,10 +237,10 @@ MonoBehaviour:
   Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Ambiance.bank
   Name: Ambiance
   StudioPath: bank:/Ambiance
-  lastModified: 638616620180031266
+  lastModified: 638621182204698148
   FileSizes:
   - Name: Desktop
-    Value: 1041312
+    Value: 1040512
   Exists: 1
 --- !u!114 &-7851213341504510
 MonoBehaviour:
@@ -303,7 +303,7 @@ MonoBehaviour:
   - {fileID: -512979188954016442}
   StringsBanks:
   - {fileID: -7625056211136013110}
-  cacheTime: 638616620180061252
+  cacheTime: 638621182206513290
   cacheVersion: 131618
 --- !u!114 &1563143263160474882
 MonoBehaviour:

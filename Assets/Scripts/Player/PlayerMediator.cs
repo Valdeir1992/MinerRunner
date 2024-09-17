@@ -102,7 +102,7 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
          return;
         transform.position = new Vector3(_currentLane * MOVE_DISTANCE_HORIZONTAL,transform.position.y,transform.position.z);
         StartCoroutine(Coroutine_MoveCooldown());
-        UpdateSound();
+        
     }
 
     private IEnumerator Coroutine_MoveCooldown()
@@ -117,25 +117,6 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
         _playerHealth.TakeDamage(damage);      
     }
 
-   //UpdateSound() � chamado em Move() mas n�o est� funcionando
-    private void UpdateSound ()
-    {
-        if (_canChangeLane)
-        {
-            PLAYBACK_STATE _playbackState;
-            _kartSound.getPlaybackState(out _playbackState);
-
-            if (_playbackState.Equals(PLAYBACK_STATE.STOPPED))
-            {
-                _kartSound.start();
-            }
-            else
-            {
-                _kartSound.stop(STOP_MODE.ALLOWFADEOUT);
-            }
-
-        }
-    }
 }
 public interface IPlayerMediator { }
 

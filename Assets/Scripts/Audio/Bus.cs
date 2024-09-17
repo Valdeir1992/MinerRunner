@@ -10,35 +10,28 @@ public class Bus : MonoBehaviour
     FMOD.Studio.Bus musicBus;
     FMOD.Studio.Bus sfxBus;
 
-    [SerializeField][Range(0, 1)] private float musicVolume;
-    [SerializeField][Range(0, 1)] private float sfxVolume;
+    [SerializeField][Range(0, 1)] public float musicVolume;
+    [SerializeField][Range(0, 1)] public float sfxVolume;
 
     private void Awake()
     {
         instance = this;
     }
+
     private void Start()
-    {
-        SetMusic();
-    }
-
-    private void Update()
-    {
-        musicBus.setVolume(musicVolume);
-
-        sfxBus.setVolume(sfxVolume);
-    }
-
-
-    private void SetMusic()
     {
         musicBus = FMODUnity.RuntimeManager.GetBus("bus:/MusicBus");
         sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/SFXBus");
+    }
+    private void Update()
+    {
+         SetMusic();
+    }
 
-        //Para o jogo iniciar com volume
-        musicVolume = 0.4f;
-        sfxVolume = 1.0f;
-
+    public void SetMusic()
+    {
+        musicBus.setVolume(musicVolume);
+        sfxBus.setVolume(sfxVolume);
     }
 }
 
