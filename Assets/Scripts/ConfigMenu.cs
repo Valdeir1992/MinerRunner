@@ -7,15 +7,15 @@ using System;
 using UnityEngine.SceneManagement;
 using FMOD.Studio;
 using static UnityEditor.Recorder.OutputPath;
+using UnityEditor.UIElements;
 
 public class ConfigMenu : MonoBehaviour
 {
     public static ConfigMenu instance;
 
-    //Controle de volume
-    [Range(0, 1)] private float musicVolume;
-    
-    
+    private Slider uxmlMusicSlider;
+    private Slider uxmlSfxSlider;
+
     private void Awake()
     {
         instance = this;
@@ -28,26 +28,35 @@ public class ConfigMenu : MonoBehaviour
         //Button
         root.Q<Button>("BT_Voltar").clicked += VoltarClicked;
 
-       //SetFillSlider(slider);
+        //Slider
+        uxmlMusicSlider = GetComponent<UIDocument>().rootVisualElement.Q<Slider>("VolumeMusica");
+        uxmlSfxSlider = GetComponent<UIDocument>().rootVisualElement.Q<Slider>("VolumeSFX");
     }
 
     private void Update()
     {
-        SetVolume();
+        uxmlMusicSlider.RegisterCallback<ChangeEvent<float>>(SetMusicSettings);
+        uxmlSfxSlider.RegisterCallback<ChangeEvent<float>>(SetSfxSettings);
     }
+
+    private void SetMusicSettings(ChangeEvent<float> evt) 
+    {
+        uxmlMusicSlider.value = evt.newValue;
+        Bus.instance.musicVolume = evt.newValue;
+
+    }
+
+    private void SetSfxSettings(ChangeEvent<float> evt)
+    {
+        uxmlSfxSlider.value = evt.newValue;
+        Bus.instance.sfxVolume = evt.newValue;
+    }
+
     private void VoltarClicked ()
     {
         UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position);
         SceneManager.LoadSceneAsync(0);
-    }
 
-    private void SetVolume()
-    {
-        var uxmlSliderMusica = GetComponent<UIDocument>().rootVisualElement.Q<Slider>("VolumeMusica");
-        var uxmlSliderSfx = GetComponent<UIDocument>().rootVisualElement.Q<Slider>("VolumeSFX");
-        Bus.instance.musicVolume = uxmlSliderMusica.value;
-        Bus.instance.sfxVolume = uxmlSliderSfx.value;
-        Bus.instance.SetMusic();
     }
 
     /// <summary>

@@ -15,12 +15,14 @@ public class AudioManager : MonoBehaviour
         if(_instance == null)
         { 
             _instance = this;
-        }else if(_instance != this){
+        }
+        else if(_instance != this)
+        {
             Debug.LogError("Mais de um Audio Manager na cena");
             Destroy(gameObject);
         } 
 
-        eventInstances = new List<EventInstance> ();
+        eventInstances = new List<EventInstance>();
     }
 
     private void Start()

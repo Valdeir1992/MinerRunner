@@ -23,10 +23,6 @@ public class Bus : MonoBehaviour
         musicBus = FMODUnity.RuntimeManager.GetBus("bus:/MusicBus");
         sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/SFXBus");
     }
-    private void Update()
-    {
-         SetMusic();
-    }
 
     public void SetMusic()
     {

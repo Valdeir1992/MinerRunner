@@ -25,7 +25,8 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     {
         _rb = GetComponent<Rigidbody>();
         _playerHealth = GetComponent<PlayerHealth>();
-        if(FMODEvents.Instance != null && !FMODEvents.Instance.miningKartSFX.IsNull){
+        if(FMODEvents.Instance != null && !FMODEvents.Instance.miningKartSFX.IsNull)
+        {
             _kartSound = AudioManager.instance.CreateEventInstance(FMODEvents.Instance.miningKartSFX);
         } 
 
@@ -71,11 +72,16 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
 
     public void Jump()
     {
-        if(_isGrounded && !_isJumping){ 
+        if(_isGrounded && !_isJumping)
+        { 
             _rb.AddForce(Vector3.up * JUMP_FORCE,ForceMode.Impulse);
             StartCoroutine(Coroutine_JumpCooldown());
 
-            AudioManager.instance.PlayOneShot(FMODEvents.Instance.jumpSFX, this.transform.position);
+            if (FMODEvents.Instance != null && !FMODEvents.Instance.miningKartSFX.IsNull)
+            {
+                AudioManager.instance.PlayOneShot(FMODEvents.Instance.jumpSFX, this.transform.position);
+
+            }
         } 
     }
     private IEnumerator Coroutine_JumpCooldown(){
