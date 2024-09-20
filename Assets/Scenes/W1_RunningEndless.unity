@@ -10645,8 +10645,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allMapPrefabs:
-  - {fileID: -4436550576753757075, guid: b5781b1947205e34a82f81708dcb5689, type: 3}
-  - {fileID: 8416372065581293678, guid: adab08a02e627cf4f94c4fa0483ddba2, type: 3}
+  - {fileID: -3397062620525613897, guid: 7cb9e58a8f3fba642a0fa645f9a41fbc, type: 3}
+  - {fileID: -2556408633797500041, guid: e24683ea0ab770b40b214b5c180c20ec, type: 3}
+  - {fileID: 8655680858576484948, guid: 8e9ad4e0507229d44bc2881b2238d0cf, type: 3}
+  - {fileID: -4944668308587461403, guid: 65d4dc2f1c50c0845b853fc8276452e8, type: 3}
+  - {fileID: 3935277810316239520, guid: 75c71d35f9d368549a29846c03cdb47f, type: 3}
 --- !u!1 &1562353397
 GameObject:
   m_ObjectHideFlags: 0
