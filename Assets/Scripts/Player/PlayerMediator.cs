@@ -18,7 +18,6 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     private bool _isInvulnerable;
     private Rigidbody _rb;
     private PlayerHealth _playerHealth;
-    private FMOD.Studio.EventInstance _kartSound;
     [SerializeField] private LayerMask _groundLayer;
 
     private void Awake()
@@ -27,13 +26,14 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
         _playerHealth = GetComponent<PlayerHealth>();
         if(FMODEvents.Instance != null && !FMODEvents.Instance.miningKartSFX.IsNull)
         {
-            _kartSound = AudioManager.instance.CreateEventInstance(FMODEvents.Instance.miningKartSFX);
+            AudioManager.instance.StartMusic(FMODEvents.Instance.miningKartSFX); //Audio no FMOD esta muito baixo
         } 
 
     }
     private void Update()
     {
         CheckGround();
+        SoundBus.instance.SetMusic();
     }
     private void OnDrawGizmos(){
         if(!Application.isPlaying)
@@ -77,7 +77,7 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
             _rb.AddForce(Vector3.up * JUMP_FORCE,ForceMode.Impulse);
             StartCoroutine(Coroutine_JumpCooldown());
 
-            if (FMODEvents.Instance != null && !FMODEvents.Instance.miningKartSFX.IsNull)
+            if (FMODEvents.Instance != null && !FMODEvents.Instance.jumpSFX.IsNull)
             {
                 AudioManager.instance.PlayOneShot(FMODEvents.Instance.jumpSFX, this.transform.position);
 

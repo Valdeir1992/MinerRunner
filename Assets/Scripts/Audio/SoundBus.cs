@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Bus : MonoBehaviour
+public class SoundBus : MonoBehaviour
 {
-    public static Bus instance;
+    public static SoundBus instance;
 
     FMOD.Studio.Bus musicBus;
     FMOD.Studio.Bus sfxBus;
@@ -16,6 +16,8 @@ public class Bus : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        musicVolume = 1.0f;
+        sfxVolume = 1.0f;
     }
 
     private void Start()

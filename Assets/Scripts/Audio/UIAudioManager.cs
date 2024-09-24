@@ -8,7 +8,7 @@ public class UIAudioManager : MonoBehaviour
 {
     private static UIAudioManager _instance;
     private List<EventInstance> eventInstances;
-    public static UIAudioManager instance { get=> _instance; }
+    public static UIAudioManager instance { get => _instance; }
     private EventInstance _eventInstance;
 
     private void Awake()

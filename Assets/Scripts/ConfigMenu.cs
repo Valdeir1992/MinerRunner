@@ -30,39 +30,38 @@ public class ConfigMenu : MonoBehaviour
 
         //Slider
         uxmlMusicSlider = GetComponent<UIDocument>().rootVisualElement.Q<Slider>("VolumeMusica");
+        uxmlMusicSlider.value = 1.0f;
         uxmlSfxSlider = GetComponent<UIDocument>().rootVisualElement.Q<Slider>("VolumeSFX");
+        uxmlSfxSlider.value = 1.0f;
     }
 
     private void Update()
     {
         uxmlMusicSlider.RegisterCallback<ChangeEvent<float>>(SetMusicSettings);
         uxmlSfxSlider.RegisterCallback<ChangeEvent<float>>(SetSfxSettings);
+
+        SoundBus.instance.SetMusic();
     }
 
     private void SetMusicSettings(ChangeEvent<float> evt) 
     {
         uxmlMusicSlider.value = evt.newValue;
-        Bus.instance.musicVolume = evt.newValue;
+        SoundBus.instance.musicVolume = evt.newValue;
 
     }
 
     private void SetSfxSettings(ChangeEvent<float> evt)
     {
         uxmlSfxSlider.value = evt.newValue;
-        Bus.instance.sfxVolume = evt.newValue;
+        SoundBus.instance.sfxVolume = evt.newValue;
     }
 
     private void VoltarClicked ()
     {
         UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position);
         SceneManager.LoadSceneAsync(0);
-
     }
 
-    /// <summary>
-    /// Adicionar componente de arrastar visualmente no slider
-    /// </summary>
-    /// <param name="volume"></param>
     private void SetFillSlider(Slider slider)
     {
         var container = new VisualElement();

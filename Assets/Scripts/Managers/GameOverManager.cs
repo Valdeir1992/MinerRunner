@@ -19,6 +19,9 @@ public class GameOverManager : MonoBehaviour
 
     public void RestartGame()
     {
+        //Som do botao
+        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.playSFX, this.transform.position);
+
         // Reiniciar o jogo
         Time.timeScale = 1f; 
 

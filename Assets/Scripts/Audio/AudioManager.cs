@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
         RuntimeManager.PlayOneShot(sound, worldPos);
     }
 
-    private void StartMusic (EventReference eventReference)
+    public void StartMusic (EventReference eventReference)
     {
         _eventInstance = CreateEventInstance(eventReference);
         _eventInstance.start();

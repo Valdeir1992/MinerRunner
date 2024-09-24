@@ -10,7 +10,6 @@ public class MenuScript : MonoBehaviour
     private void Start()
     {
 
-        var localBus = Bus.instance;
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
         root.Q<Button>("BT_Config").clicked += async () =>
