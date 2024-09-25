@@ -28,7 +28,7 @@ public class UIAudioManager : MonoBehaviour
 
     private void Start()
     {
-        StartMusic(UIFMODEvents.instance.uiBackground);
+          StartMusic(UIFMODEvents.instance.uiBackground); //Tocar musica
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)

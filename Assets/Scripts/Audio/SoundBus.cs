@@ -16,8 +16,7 @@ public class SoundBus : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        musicVolume = 1.0f;
-        sfxVolume = 1.0f;
+       
     }
 
     private void Start()
@@ -31,5 +30,7 @@ public class SoundBus : MonoBehaviour
         musicBus.setVolume(musicVolume);
         sfxBus.setVolume(sfxVolume);
     }
+
+
 }
 

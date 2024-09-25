@@ -30,15 +30,16 @@ public class ConfigMenu : MonoBehaviour
 
         //Slider
         uxmlMusicSlider = GetComponent<UIDocument>().rootVisualElement.Q<Slider>("VolumeMusica");
-        uxmlMusicSlider.value = 1.0f;
         uxmlSfxSlider = GetComponent<UIDocument>().rootVisualElement.Q<Slider>("VolumeSFX");
-        uxmlSfxSlider.value = 1.0f;
     }
 
     private void Update()
     {
         uxmlMusicSlider.RegisterCallback<ChangeEvent<float>>(SetMusicSettings);
+        uxmlMusicSlider.value = PlayerPrefs.GetFloat("userMusicVolume");
+
         uxmlSfxSlider.RegisterCallback<ChangeEvent<float>>(SetSfxSettings);
+        uxmlSfxSlider.value = PlayerPrefs.GetFloat("userSfxVolume");
 
         SoundBus.instance.SetMusic();
     }
@@ -47,6 +48,7 @@ public class ConfigMenu : MonoBehaviour
     {
         uxmlMusicSlider.value = evt.newValue;
         SoundBus.instance.musicVolume = evt.newValue;
+        PlayerPrefs.SetFloat("userMusicVolume", evt.newValue);
 
     }
 
@@ -54,6 +56,7 @@ public class ConfigMenu : MonoBehaviour
     {
         uxmlSfxSlider.value = evt.newValue;
         SoundBus.instance.sfxVolume = evt.newValue;
+        PlayerPrefs.SetFloat("userSfxVolume", evt.newValue);
     }
 
     private void VoltarClicked ()
