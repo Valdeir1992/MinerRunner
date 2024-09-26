@@ -9,7 +9,8 @@ using FMOD.Studio;
 
 public class PlayerMediator : MonoBehaviour, IPlayerMediator
 {
-    private const float MOVE_DISTANCE_HORIZONTAL = 2;
+    private const float MOVE_DISTANCE_RIGHT = 2.85f;
+    private const float MOVE_DISTANCE_LEFT = 3.20f;
     private const float JUMP_FORCE = 5;
     private int _currentLane =0;
     private bool _canChangeLane = true;
@@ -88,19 +89,28 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     public void MoveLeft()
     {
         _currentLane = Mathf.Clamp(_currentLane-1,-1,1);
-        Move();
+        applyLeftMovement();
     }
 
     public void MoveRight()
     {
         _currentLane = Mathf.Clamp(_currentLane+1,-1,1);
-        Move();
+        applyRightMovement();
     }
    
-    private void Move(){
+    private void applyLeftMovement(){
         if (!_canChangeLane)
          return;
-        transform.position = new Vector3(_currentLane * MOVE_DISTANCE_HORIZONTAL,transform.position.y,transform.position.z);
+        transform.position = new Vector3(_currentLane * MOVE_DISTANCE_LEFT,transform.position.y,transform.position.z);
+        StartCoroutine(Coroutine_MoveCooldown());
+        UpdateSound();
+    }
+
+    private void applyRightMovement()
+    {
+        if (!_canChangeLane)
+            return;
+        transform.position = new Vector3(_currentLane * MOVE_DISTANCE_RIGHT, transform.position.y, transform.position.z);
         StartCoroutine(Coroutine_MoveCooldown());
         UpdateSound();
     }
