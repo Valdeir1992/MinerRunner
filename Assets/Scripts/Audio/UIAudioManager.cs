@@ -13,6 +13,7 @@ public class UIAudioManager : MonoBehaviour
 
     private void Awake()
     {
+             
         if (_instance == null)
         {
             _instance = this;
@@ -24,6 +25,10 @@ public class UIAudioManager : MonoBehaviour
         }
 
        eventInstances = new List<EventInstance>();
+
+
+        SoundBus.instance.musicVolume = PlayerPrefs.GetFloat("userMusicVolume");
+        SoundBus.instance.sfxVolume = PlayerPrefs.GetFloat("userSfxVolume");
     }
 
     private void Start()

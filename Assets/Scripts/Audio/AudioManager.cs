@@ -23,11 +23,16 @@ public class AudioManager : MonoBehaviour
         } 
 
         eventInstances = new List<EventInstance>();
+
+        SoundBus.instance.musicVolume =  PlayerPrefs.GetFloat("userMusicVolume");
+        SoundBus.instance.sfxVolume = PlayerPrefs.GetFloat("userSfxVolume");
     }
 
     private void Start()
     {
+
         StartMusic(FMODEvents.Instance.gameBackground);
+
     }
     public void PlayOneShot (EventReference sound, Vector3 worldPos)
     {

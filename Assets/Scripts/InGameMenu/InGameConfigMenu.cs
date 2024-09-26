@@ -9,9 +9,9 @@ using FMOD.Studio;
 using static UnityEditor.Recorder.OutputPath;
 using UnityEditor.UIElements;
 
-public class ConfigMenu : MonoBehaviour
+public class InGameConfigMenu : MonoBehaviour
 {
-    public static ConfigMenu instance;
+    public static InGameConfigMenu instance;
 
     private Slider uxmlMusicSlider;
     private Slider uxmlSfxSlider;
@@ -25,8 +25,9 @@ public class ConfigMenu : MonoBehaviour
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
 
-        //Button
+        //Botoes
         root.Q<Button>("BT_Voltar").clicked += VoltarClicked;
+        root.Q<Button>("BT_Home").clicked += HomeClicked;
 
         //Slider
         uxmlMusicSlider = GetComponent<UIDocument>().rootVisualElement.Q<Slider>("VolumeMusica");
@@ -44,7 +45,7 @@ public class ConfigMenu : MonoBehaviour
         SoundBus.instance.SetMusic();
     }
 
-    private void SetMusicSettings(ChangeEvent<float> evt) 
+    private void SetMusicSettings(ChangeEvent<float> evt)
     {
         uxmlMusicSlider.value = evt.newValue;
         SoundBus.instance.musicVolume = evt.newValue;
@@ -61,12 +62,20 @@ public class ConfigMenu : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void VoltarClicked ()
+    private void VoltarClicked()
     {
         Time.timeScale = 1f; // Despausa o jogo caso estivesse pausado
         UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position); // Som do botao
 
         GameObject.Destroy(gameObject);
+    }
+
+    private void HomeClicked()
+    {
+        Time.timeScale = 1f; // Despausa o jogo caso estivesse pausado
+        SceneManager.LoadSceneAsync(0);
+        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position); // Som do botao
+
     }
 
     private void SetFillSlider(Slider slider)
@@ -77,13 +86,13 @@ public class ConfigMenu : MonoBehaviour
         var bar = new VisualElement();
         container.Add(bar);
         slider.Add(container);
-        slider.RegisterValueChangedCallback<float>(ctx => 
+        slider.RegisterValueChangedCallback<float>(ctx =>
         {
             bar.style.width = Length.Percent(ctx.newValue);
             Debug.Log(ctx.newValue);
         });
     }
-  
+
 
 
 }

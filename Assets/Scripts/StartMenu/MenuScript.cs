@@ -7,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     [SerializeField] private ConfigMenu _startMenuPrefab;
+
+    private void Awake()
+    {
+        Time.timeScale = 1f; // Despausa o jogo caso estivesse pausado
+    }
     private void Start()
     {
              
@@ -21,9 +26,10 @@ public class MenuScript : MonoBehaviour
         root.Q<Button>("BT_Play").clicked += () => 
         {
             UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.playSFX, this.transform.position); //Tocar som do botao
+            SceneManager.LoadSceneAsync(1);
 
             FindAnyObjectByType<FadeController>().FadeOut(()=> {
-                 SceneManager.LoadSceneAsync(1);
+                SceneManager.LoadSceneAsync(1);
             });
 
         };
