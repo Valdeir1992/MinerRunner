@@ -12254,7 +12254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c811a87cbc01fc846894fe82d8f8b0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinPrefab: {fileID: 880336486326621822, guid: 686ee17a2913ccb4db28c9999eedb31f, type: 3}
+  _coinPrefab: {fileID: 2774639743152349811, guid: 08f68a83e09fcb14b892764ccc773b42, type: 3}
   _spawerSO: {fileID: 11400000, guid: a5c74959e0939064c90f967cc3bd256e, type: 2}
 --- !u!1 &2064266364
 GameObject:
