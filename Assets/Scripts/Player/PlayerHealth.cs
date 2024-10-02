@@ -5,8 +5,11 @@ public class PlayerHealth : MonoBehaviour
 {
     public Action OnDie;
     public Action<int> OnTakeDamage;
-    public int maxHealth = 100;
-    private int currentHealth; 
+    private int maxHealth = 3; 
+    private int currentHealth;
+
+    [SerializeField] private GameOverManager _startGameOver;
+
 
     private void Start()
     {
@@ -17,14 +20,17 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage; 
         OnTakeDamage?.Invoke(currentHealth);
+        Debug.Log("VIDA "+currentHealth);
         if (currentHealth <= 0)
         {
             Die();
+            currentHealth = maxHealth; //Reseta a vida
         }
     }
 
     private void Die()
     {
+        _startGameOver.ShowGameOver(); 
         Debug.Log("Player died!");
         OnDie?.Invoke();
     }

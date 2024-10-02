@@ -8,11 +8,13 @@ public class GameOverManager : MonoBehaviour
     private void Start()
     {
         gameOverPanel.SetActive(false);
+
     }
 
     public void ShowGameOver()
     {
         gameOverPanel.SetActive(true);
+
         // Pausar o jogo se necess�rio
         Time.timeScale = 0f;
     }

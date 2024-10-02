@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30df47f94f75a364d9f202b56296eb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  _startGameOver: {fileID: 3111125298137127833, guid: b63e3c3d6d53b124a88296bd0993332f, type: 3}
 --- !u!65 &274681224
 BoxCollider:
   m_ObjectHideFlags: 0
