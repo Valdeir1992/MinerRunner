@@ -17,3 +17,4 @@ public class Hurtbox : MonoBehaviour
         }
     }
 }
+//Acredito que esse script nao esta sendo usado em lugar nenhum

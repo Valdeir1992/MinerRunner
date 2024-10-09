@@ -30,8 +30,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        _startGameOver.ShowGameOver(); 
-        Debug.Log("Player died!");
+        InstantiateAsync(_startGameOver); //Chama menu de Game Over
         OnDie?.Invoke();
     }
 }
