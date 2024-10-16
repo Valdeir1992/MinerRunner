@@ -508,8 +508,8 @@ MonoBehaviour:
     HasValue: 0
   displaySortOrder: 0
   childIdentifiers:
-  - b7716510a1f36934c87976f3a81dbf3d
   - de700ef3f37a49b58a57ae3addf01ad9
+  - b7716510a1f36934c87976f3a81dbf3d
   - c88d16e5272a4e241b0ef0ac2e53b73d
   - 46fbfdf3fc43db0458918377fd40293e
   - 0f8eb3f400726694eb47beb1a9f94ce8
@@ -536,8 +536,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/MINERSMESS-RUNNER-VUKI.fspro
-  sourceBankPath: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build
+  sourceProjectPath: Assets/MINERSMASS_RUNNER_VUKI_SFX/MINERSMESS-RUNNER-VUKI.fspro
+  sourceBankPath: Assets/MINERSMASS_RUNNER_VUKI_SFX/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -579,8 +579,8 @@ MonoBehaviour:
   HideSetupWizard: 1
   LastEventReferenceScanVersion: 131618
   Platforms:
-  - {fileID: -8644894126297521822}
   - {fileID: -8229354328832921951}
+  - {fileID: -8644894126297521822}
   - {fileID: -8214664624761157395}
   - {fileID: -6924423093171219397}
   - {fileID: -5484515092400535428}
