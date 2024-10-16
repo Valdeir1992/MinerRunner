@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{18955d2e-ccb7-4b6f-a19c-3ec8d94360f3}">
+		<property name="assetPath">
+			<value>impact_rock.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b958f143-5802-445e-9e2b-c8aa89e47ed2}</destination>
+		</relationship>
+	</object>
+</objects>

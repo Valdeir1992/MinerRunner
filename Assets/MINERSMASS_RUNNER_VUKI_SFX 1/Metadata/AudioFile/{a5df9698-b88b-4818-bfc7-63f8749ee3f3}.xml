@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a5df9698-b88b-4818-bfc7-63f8749ee3f3}">
+		<property name="assetPath">
+			<value>sfx_loot_rock.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3287301587301588</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b958f143-5802-445e-9e2b-c8aa89e47ed2}</destination>
+		</relationship>
+	</object>
+</objects>
