@@ -6,25 +6,34 @@ using FMOD.Studio;
 
 public class UIAudioManager : MonoBehaviour
 {
+    private static UIAudioManager _instance;
     private List<EventInstance> eventInstances;
-    public static UIAudioManager instance { get; private set; }
+    public static UIAudioManager instance { get => _instance; }
     private EventInstance _eventInstance;
 
     private void Awake()
     {
-        if (instance != null)
+             
+        if (_instance == null)
         {
-            Debug.LogError("Mais de um Audio Manager na cena");
-        };
+            _instance = this;
+        }
+        else if (_instance != this)
+        {
+            Debug.LogError("Mais de um UI Audio Manager em cena");
+            Destroy(gameObject);
+        }
 
-        instance = this;
+       eventInstances = new List<EventInstance>();
 
-        eventInstances = new List<EventInstance>();
+
+        SoundBus.instance.musicVolume = PlayerPrefs.GetFloat("userMusicVolume");
+        SoundBus.instance.sfxVolume = PlayerPrefs.GetFloat("userSfxVolume");
     }
 
     private void Start()
     {
-        StartMusic(UIFMODEvents.instance.uiBackground);
+          StartMusic(UIFMODEvents.instance.uiBackground); //Tocar musica
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)

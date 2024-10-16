@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 2757c86e6a510284e9f80b08c6d90236
+<<<<<<<< HEAD:Assets/Scripts/Player/PlayerCoins.cs.meta
+guid: acebabfd462a77345ac5c3a5d9b8d07d
+========
+guid: e5436dcec3459fc498d4a38ae1d16b1b
+>>>>>>>> volume_control:Assets/Scripts/InGameMenu/InGameConfigMenu.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

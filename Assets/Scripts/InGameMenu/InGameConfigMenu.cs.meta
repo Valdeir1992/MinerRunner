@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Player/PlayerCoins.cs.meta
+guid: 2757c86e6a510284e9f80b08c6d90236
+========
+guid: e5436dcec3459fc498d4a38ae1d16b1b
+>>>>>>>> volume_control:Assets/Scripts/InGameMenu/InGameConfigMenu.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
