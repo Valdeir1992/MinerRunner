@@ -17,5 +17,6 @@ public class PlayerCoins:MonoBehaviour
         money = PlayerPrefs.GetInt("coins"); // Define o valor de "money" como o de "coins"
         PlayerPrefs.SetInt("coins", money += coinValue); // Define novo valor de "coins"
         PlayerPrefs.Save(); // Salva o novo valor
+
     }
 }

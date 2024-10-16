@@ -10,6 +10,7 @@ public class CollectibleCoin : MonoBehaviour
 
     [SerializeField] PlayerCoins _playerCoins;
 
+
     private void OnBecameInvisible()
     {
         Release();
