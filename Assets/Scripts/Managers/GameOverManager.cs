@@ -3,17 +3,10 @@ using UnityEngine;
 
 public class GameOverManager : MonoBehaviour
 {
-    public GameObject gameOverPanel;
 
-    private void Start()
+    public void Start()
     {
-        gameOverPanel.SetActive(false);
-    }
-
-    public void ShowGameOver()
-    {
-        gameOverPanel.SetActive(true);
-        // Pausar o jogo se necess�rio
+        // Pausar o jogo se necessario
         Time.timeScale = 0f;
     }
 

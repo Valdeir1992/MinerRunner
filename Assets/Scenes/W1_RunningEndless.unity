@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30df47f94f75a364d9f202b56296eb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  _startGameOver: {fileID: 3111125298137127833, guid: b63e3c3d6d53b124a88296bd0993332f, type: 3}
 --- !u!65 &274681224
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5412,7 +5412,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1754581549}
+      - m_Target: {fileID: 3111125298137127833, guid: b63e3c3d6d53b124a88296bd0993332f, type: 3}
         m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -12311,7 +12311,8 @@ GameObject:
   - component: {fileID: 1754581546}
   - component: {fileID: 1754581548}
   - component: {fileID: 1754581547}
-  - component: {fileID: 1754581549}
+  - component: {fileID: 1754581551}
+  - component: {fileID: 1754581550}
   m_Layer: 5
   m_Name: GameOverPanel
   m_TagString: Untagged
@@ -12378,7 +12379,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754581545}
   m_CullTransparentMesh: 1
---- !u!114 &1754581549
+--- !u!114 &1754581550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12387,10 +12388,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 1754581545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7894f386aa1d7ad40b32a0586b6ddbac, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 1754581545}
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1754581551
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754581545}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &2033279003
 GameObject:
   m_ObjectHideFlags: 0
@@ -12435,7 +12469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c811a87cbc01fc846894fe82d8f8b0ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinPrefab: {fileID: 880336486326621822, guid: 686ee17a2913ccb4db28c9999eedb31f, type: 3}
+  _coinPrefab: {fileID: 2774639743152349811, guid: 08f68a83e09fcb14b892764ccc773b42, type: 3}
   _spawerSO: {fileID: 11400000, guid: a5c74959e0939064c90f967cc3bd256e, type: 2}
 --- !u!1 &2064266364
 GameObject:
