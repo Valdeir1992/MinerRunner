@@ -8,8 +8,6 @@ public class PlayerHealth : MonoBehaviour
     private int maxHealth = 3; 
     private int currentHealth;
 
-    [SerializeField] private GameOverManager _startGameOver;
-
 
     private void Start()
     {
@@ -29,8 +27,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void Die()
-    {
-        InstantiateAsync(_startGameOver); //Chama menu de Game Over
+    { 
         OnDie?.Invoke();
     }
 }

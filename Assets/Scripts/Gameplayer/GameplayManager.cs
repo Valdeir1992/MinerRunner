@@ -10,6 +10,7 @@ public class GameplayManager : MonoBehaviour
     private ObstacleSpawnerController _obstacleSpawner;
     private CameraController _cameraController;
     private ScoreManager _scoreManager;
+    [SerializeField] private GameOverManager _startGameOver;
 
     private void Awake(){
         _coinSpawner = FindAnyObjectByType<CoinSpawnerController>();
@@ -18,11 +19,25 @@ public class GameplayManager : MonoBehaviour
         _cameraController = FindAnyObjectByType<CameraController>();
         _scoreManager = FindAnyObjectByType<ScoreManager>();
     }
+    private void OnEnable()
+    {
+        FindAnyObjectByType<PlayerHealth>().OnDie += () =>
+        {
+            Instantiate(_startGameOver);
+        };
+    }
     private void Start(){
         InvokeRepeating(nameof(this.Spawn),3,10);
         StartCoroutine(Coroutine_SpeedUp());
         StartCoroutine(Coroutine_Distance());
         FindAnyObjectByType<FadeController>()?.FadeIn(null);
+    }
+    private void OnDisable()
+    {
+        FindAnyObjectByType<PlayerHealth>().OnDie -= () =>
+        {
+            Instantiate(_startGameOver);
+        };
     }
     private void Spawn(){
         StartCoroutine(_coinSpawner.Coroutine_Spawn());
