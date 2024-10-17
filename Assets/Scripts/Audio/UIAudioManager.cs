@@ -16,19 +16,16 @@ public class UIAudioManager : MonoBehaviour
              
         if (_instance == null)
         {
-            _instance = this;
+            _instance = this; 
+            eventInstances = new List<EventInstance>(); 
+            SoundBus.instance.musicVolume = PlayerPrefs.GetFloat("userMusicVolume");
+            SoundBus.instance.sfxVolume = PlayerPrefs.GetFloat("userSfxVolume");
         }
         else if (_instance != this)
         {
             Debug.LogError("Mais de um UI Audio Manager em cena");
             Destroy(gameObject);
         }
-
-       eventInstances = new List<EventInstance>();
-
-
-        SoundBus.instance.musicVolume = PlayerPrefs.GetFloat("userMusicVolume");
-        SoundBus.instance.sfxVolume = PlayerPrefs.GetFloat("userSfxVolume");
     }
 
     private void Start()

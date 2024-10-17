@@ -40,9 +40,12 @@ public class MapSessionSpawnerController : MonoBehaviour
             MapSection mapToSpawn = _mapPooling.GetFromPool(); 
             mapToSpawn.OnRealeaser += ()=> {
                 SpawnSession();
-                _mapPooling.ReturnToPool(mapToSpawn);
-                mapToSpawn.transform.position = POOLING_START_POSITION; 
-                _currentSessions.Remove(mapToSpawn);  
+                if(_mapPooling != null)
+                {
+                    _mapPooling.ReturnToPool(mapToSpawn);
+                    mapToSpawn.transform.position = POOLING_START_POSITION;
+                    _currentSessions.Remove(mapToSpawn);
+                }
             }; 
             mapToSpawn.transform.position = new Vector3(FIX_X_POSITION,0,33 * i); 
             _currentSessions.Add(mapToSpawn);
@@ -50,15 +53,19 @@ public class MapSessionSpawnerController : MonoBehaviour
     } 
     private void SpawnSession(){ 
             MapSection mapToSpawn = _mapPooling.GetFromPool();  
+        if(mapToSpawn != null && _currentSessions != null)
+        {
             _currentSessions.Add(mapToSpawn);
-            mapToSpawn.OnRealeaser += ()=> { 
+            mapToSpawn.OnRealeaser += () => {
                 SpawnSession();
                 _mapPooling.ReturnToPool(mapToSpawn);
-                _currentSessions.Remove(mapToSpawn);  
-            };              
-            var sessionsActives = _currentSessions.Where(x=>x.isActiveAndEnabled).OrderBy(x=>x.transform.position.z);
+                _currentSessions.Remove(mapToSpawn);
+            };
+            var sessionsActives = _currentSessions.Where(x => x != null && x.isActiveAndEnabled).OrderBy(x => x.transform.position.z);
             var selected = sessionsActives.Last();
             var zNextPosition = selected.transform.position.z + SESSION_SIZE;
-            mapToSpawn.transform.position = new Vector3(FIX_X_POSITION,0,zNextPosition);  
+            mapToSpawn.transform.position = new Vector3(FIX_X_POSITION, 0, zNextPosition);
+        }
+           
     } 
 }

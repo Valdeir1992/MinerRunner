@@ -9,7 +9,7 @@ public class FadeController : MonoBehaviour
     [SerializeField] private CanvasGroup _canvas;
 
 private void Awake(){
-    if(ReferenceEquals(_instance,null)){
+    if(_instance == null){
         _instance = this; 
         DontDestroyOnLoad(gameObject);
     }else if(_instance != this){

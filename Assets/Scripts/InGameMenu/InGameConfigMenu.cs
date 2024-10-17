@@ -70,12 +70,11 @@ public class InGameConfigMenu : MonoBehaviour
         GameObject.Destroy(gameObject);
     }
 
-    private void HomeClicked()
+    private async void HomeClicked()
     {
         Time.timeScale = 1f; // Despausa o jogo caso estivesse pausado
-        SceneManager.LoadSceneAsync(0);
         UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position); // Som do botao
-
+        SceneManager.LoadSceneAsync(0); 
     }
 
     private void SetFillSlider(Slider slider)

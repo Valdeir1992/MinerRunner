@@ -61,6 +61,8 @@ public class PlayerMediator : MonoBehaviour, IPlayerMediator
     }
     private void OnDisable(){
          var inputManager = FindAnyObjectByType<TouchManager>();
+        if (inputManager == null)
+            return;
         inputManager.OnMoveLeft -= MoveLeft;
         inputManager.OnMoveRight -= MoveRight;
         inputManager.OnMoveUp += Jump;

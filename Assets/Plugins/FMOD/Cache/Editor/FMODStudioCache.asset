@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: -1921871973
     Data4: -2119885521
   Banks:
-  - {fileID: -2315858382686549916}
+  - {fileID: 5890072841922729381}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
     Data3: -888990789
     Data4: -570022502
   Banks:
-  - {fileID: 1563143263160474882}
+  - {fileID: 8095879747439969487}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 575
---- !u!114 &-7625056211136013110
+--- !u!114 &-7294589038951715210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,15 +64,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Ambiance.strings.bank
+  m_Name: bank:/UI.bank
   m_EditorClassIdentifier: 
-  Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Ambiance.strings.bank
-  Name: Ambiance.strings
-  StudioPath: bank:/Ambiance.strings
-  lastModified: 638621182204718119
+  Path: Assets/MINERSMASS_RUNNER_VUKI_SFX 1/Build/Desktop/UI.bank
+  Name: UI
+  StudioPath: bank:/UI
+  lastModified: 638647012287157100
   FileSizes:
   - Name: Desktop
-    Value: 1562
+    Value: 56704
   Exists: 1
 --- !u!114 &-6303844773242903699
 MonoBehaviour:
@@ -93,7 +93,7 @@ MonoBehaviour:
     Data3: 1318352318
     Data4: -1437618582
   Banks:
-  - {fileID: 1563143263160474882}
+  - {fileID: 8095879747439969487}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
     Data3: 1250924180
     Data4: 731859030
   Banks:
-  - {fileID: -512979188954016442}
+  - {fileID: 5561912197686787209}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -128,26 +128,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1179
---- !u!114 &-4876355867245688618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/UI.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/UI.bank
-  Name: UI
-  StudioPath: bank:/UI
-  lastModified: 638621182206513290
-  FileSizes:
-  - Name: Desktop
-    Value: 56704
-  Exists: 1
 --- !u!114 &-3444503032262283950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +147,7 @@ MonoBehaviour:
     Data3: -630048578
     Data4: -1231703267
   Banks:
-  - {fileID: -512979188954016442}
+  - {fileID: 5561912197686787209}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -194,7 +174,7 @@ MonoBehaviour:
     Data3: 1939926180
     Data4: -735512229
   Banks:
-  - {fileID: -4876355867245688618}
+  - {fileID: -7294589038951715210}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -202,46 +182,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-2315858382686549916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Music.bank
-  Name: Music
-  StudioPath: bank:/Music
-  lastModified: 638621182206125616
-  FileSizes:
-  - Name: Desktop
-    Value: 2430624
-  Exists: 1
---- !u!114 &-512979188954016442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Ambiance.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Ambiance.bank
-  Name: Ambiance
-  StudioPath: bank:/Ambiance
-  lastModified: 638621182204698148
-  FileSizes:
-  - Name: Desktop
-    Value: 1040512
-  Exists: 1
 --- !u!114 &-7851213341504510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +201,7 @@ MonoBehaviour:
     Data3: -1002396484
     Data4: 674146737
   Banks:
-  - {fileID: 1563143263160474882}
+  - {fileID: 8095879747439969487}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -282,11 +222,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -7625056211136013110}
-  - {fileID: -512979188954016442}
-  - {fileID: 1563143263160474882}
-  - {fileID: -2315858382686549916}
-  - {fileID: -4876355867245688618}
+  - {fileID: 6796561162752019370}
+  - {fileID: 5561912197686787209}
+  - {fileID: 8095879747439969487}
+  - {fileID: 5890072841922729381}
+  - {fileID: -7294589038951715210}
   EditorEvents:
   - {fileID: -6287103731523495556}
   - {fileID: -3444503032262283950}
@@ -300,31 +240,11 @@ MonoBehaviour:
   - {fileID: 2889396193077775482}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -512979188954016442}
+  - {fileID: 5561912197686787209}
   StringsBanks:
-  - {fileID: -7625056211136013110}
-  cacheTime: 638621182206513290
+  - {fileID: 6796561162752019370}
+  cacheTime: 638647012287157100
   cacheVersion: 131618
---- !u!114 &1563143263160474882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Character.bank
-  m_EditorClassIdentifier: 
-  Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Character.bank
-  Name: Character
-  StudioPath: bank:/Character
-  lastModified: 638616597285151535
-  FileSizes:
-  - Name: Desktop
-    Value: 707168
-  Exists: 1
 --- !u!114 &2889396193077775482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +264,7 @@ MonoBehaviour:
     Data3: -1614626401
     Data4: 114595025
   Banks:
-  - {fileID: -4876355867245688618}
+  - {fileID: -7294589038951715210}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -371,7 +291,7 @@ MonoBehaviour:
     Data3: 493480635
     Data4: 1505749742
   Banks:
-  - {fileID: -4876355867245688618}
+  - {fileID: -7294589038951715210}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -379,6 +299,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5561912197686787209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambiance.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/MINERSMASS_RUNNER_VUKI_SFX 1/Build/Desktop/Ambiance.bank
+  Name: Ambiance
+  StudioPath: bank:/Ambiance
+  lastModified: 638647012286666257
+  FileSizes:
+  - Name: Desktop
+    Value: 1040512
+  Exists: 1
 --- !u!114 &5792436440109280883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +338,7 @@ MonoBehaviour:
     Data3: -721566060
     Data4: -349273760
   Banks:
-  - {fileID: -2315858382686549916}
+  - {fileID: 5890072841922729381}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -406,3 +346,63 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 114626
+--- !u!114 &5890072841922729381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/MINERSMASS_RUNNER_VUKI_SFX 1/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638647012287137013
+  FileSizes:
+  - Name: Desktop
+    Value: 2430624
+  Exists: 1
+--- !u!114 &6796561162752019370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambiance.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/MINERSMASS_RUNNER_VUKI_SFX 1/Build/Desktop/Ambiance.strings.bank
+  Name: Ambiance.strings
+  StudioPath: bank:/Ambiance.strings
+  lastModified: 638647012286676003
+  FileSizes:
+  - Name: Desktop
+    Value: 1562
+  Exists: 1
+--- !u!114 &8095879747439969487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Character.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/MINERSMASS_RUNNER_VUKI_SFX 1/Build/Desktop/Character.bank
+  Name: Character
+  StudioPath: bank:/Character
+  lastModified: 638647012286696106
+  FileSizes:
+  - Name: Desktop
+    Value: 707168
+  Exists: 1

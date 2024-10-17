@@ -25,13 +25,11 @@ public class MenuScript : MonoBehaviour
 
         root.Q<Button>("BT_Play").clicked += () => 
         {
-            UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.playSFX, this.transform.position); //Tocar som do botao
-            SceneManager.LoadSceneAsync(1);
-
+            UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.playSFX, this.transform.position); //Tocar som do botao 
             FindAnyObjectByType<FadeController>().FadeOut(()=> {
                 SceneManager.LoadSceneAsync(1);
             });
-
+            root.Q<Button>("BT_Play").pickingMode = PickingMode.Ignore;
         };
         FindAnyObjectByType<FadeController>().FadeIn(null);
 

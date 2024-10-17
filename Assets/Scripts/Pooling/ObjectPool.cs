@@ -37,7 +37,7 @@ public class ObjectPool<T> where T:MonoBehaviour
     {
         T selected = default;
         foreach(var current in _pool){
-            if(current.gameObject.activeInHierarchy){
+            if(current == null || current.gameObject.activeInHierarchy){
                 continue;
             }
             selected = current;
