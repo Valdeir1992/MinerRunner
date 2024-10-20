@@ -9,16 +9,15 @@ public class InGameMenu : MonoBehaviour
 
     public void ConfigClicked()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.Instance.buttonSFX, this.transform.position); // Som do botao
         Time.timeScale = 0f; // Pausa o jogo
-        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position); // Som do botao
         Instantiate(_startGameMenuPrefab); // Chama prefab do menu de configuracoes
     }
 
     public void PauseClicked()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.Instance.buttonSFX, this.transform.position); // Som do botao
         Time.timeScale = 0f; // Pausa o jogo
-        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position); // Som do botao
         Instantiate(_startPausePrefab); // Mostra o menu de pausa
-
     }
 }

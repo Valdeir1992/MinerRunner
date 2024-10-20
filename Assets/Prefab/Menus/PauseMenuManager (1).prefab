@@ -31,7 +31,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4425191819703655812}
+  - {fileID: 2708831069406609866}
   - {fileID: 7186213073897850730}
   - {fileID: 5209598936483205756}
   - {fileID: 4072484748703392973}
@@ -63,7 +63,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &8297720675578043046
 MonoBehaviour:
@@ -267,7 +267,7 @@ RectTransform:
   m_GameObject: {fileID: 3431984418144760508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.79968, y: 3.3248, z: 2}
+  m_LocalScale: {x: 0.79968, y: 3.82352, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6360268213757342636}
@@ -359,9 +359,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603092105095415110}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 3479245503688213543}
+        m_TargetAssemblyTypeName: NewPauseScript, Assembly-CSharp
+        m_MethodName: HomeClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -371,6 +371,82 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &4302714682310867212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2708831069406609866}
+  - component: {fileID: 8771613626064005500}
+  - component: {fileID: 7500418996865585167}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2708831069406609866
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4302714682310867212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2352219955149389830}
+  m_Father: {fileID: 6360268213757342636}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00056458, y: 0.0020752}
+  m_SizeDelta: {x: 792, y: 1650}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8771613626064005500
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4302714682310867212}
+  m_CullTransparentMesh: 1
+--- !u!114 &7500418996865585167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4302714682310867212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4780667535748030028
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,9 +568,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 603092105095415110}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 3479245503688213543}
+        m_TargetAssemblyTypeName: NewPauseScript, Assembly-CSharp
+        m_MethodName: ReturnClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -516,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967f7d8b3f69c2744a5c8202e53225fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 6636729332232466338}
+  pauseMenuUI: {fileID: 0}
 --- !u!1 &5402243301286112276
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a427f0f287170d84eadaee58dd2b06f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &6636729332232466338
+  pauseMenuUI: {fileID: 5402243301286112276}
+--- !u!1 &8278140100892962854
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -570,65 +647,65 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4425191819703655812}
-  - component: {fileID: 2540757055073772129}
-  - component: {fileID: 8513764334549388912}
+  - component: {fileID: 2352219955149389830}
+  - component: {fileID: 5781043733727038340}
+  - component: {fileID: 392534553358709568}
   m_Layer: 5
-  m_Name: PauseScreen
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4425191819703655812
+--- !u!224 &2352219955149389830
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6636729332232466338}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 8278140100892962854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.97486, y: 1.8426682, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6360268213757342636}
+  m_Father: {fileID: 2708831069406609866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1, y: 73}
-  m_SizeDelta: {x: 138, y: -1168}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 29.718893, y: 321.65634}
+  m_SizeDelta: {x: 1160.9314, y: 494.8819}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2540757055073772129
+--- !u!222 &5781043733727038340
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6636729332232466338}
+  m_GameObject: {fileID: 8278140100892962854}
   m_CullTransparentMesh: 1
---- !u!114 &8513764334549388912
+--- !u!114 &392534553358709568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6636729332232466338}
+  m_GameObject: {fileID: 8278140100892962854}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

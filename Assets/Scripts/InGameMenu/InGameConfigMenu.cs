@@ -74,7 +74,7 @@ public class InGameConfigMenu : MonoBehaviour
     private void VoltarClicked()
     {
         Time.timeScale = 1f; // Despausa o jogo caso estivesse pausado
-        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position); // Som do botao
+        AudioManager.instance.PlayOneShot(FMODEvents.Instance.voltarSFX, this.transform.position); // Som do botao
 
         GameObject.Destroy(gameObject);
     }
@@ -83,7 +83,7 @@ public class InGameConfigMenu : MonoBehaviour
     {
         Time.timeScale = 1f; // Despausa o jogo caso estivesse pausado
         SceneManager.LoadSceneAsync(0);
-        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position); // Som do botao
+        AudioManager.instance.PlayOneShot(FMODEvents.Instance.playSFX, this.transform.position); // Som do botao
 
     }
 
