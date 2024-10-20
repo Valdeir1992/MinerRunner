@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseScript : MonoBehaviour
 {
@@ -23,5 +24,12 @@ public class PauseScript : MonoBehaviour
             Time.timeScale = 1f; // Retoma o jogo
             pauseMenuUI.SetActive(false); // Oculta o menu de pausa
         }
+    }
+
+    private void HomeClicked()
+    {
+        Time.timeScale = 1f; // Despausa o jogo caso estivesse pausado
+        SceneManager.LoadSceneAsync(0);
+        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.voltarSFX, this.transform.position); // Som do botao
     }
 }
