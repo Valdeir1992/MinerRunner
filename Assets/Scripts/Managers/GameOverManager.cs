@@ -13,12 +13,24 @@ public class GameOverManager : MonoBehaviour
     public void RestartGame()
     {
         //Som do botao
-        UIAudioManager.instance.PlayOneShot(UIFMODEvents.instance.playSFX, this.transform.position);
+        AudioManager.instance.PlayOneShot(FMODEvents.Instance.playSFX, this.transform.position);
 
         // Reiniciar o jogo
         Time.timeScale = 1f; 
 
         // Recarregar a cena atual
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void MainMenu()
+    {
+        //Som do botao
+        AudioManager.instance.PlayOneShot(FMODEvents.Instance.playSFX, this.transform.position);
+
+        // Reiniciar o jogo
+        Time.timeScale = 1f;
+
+        // Recarregar a cena atual
+        SceneManager.LoadScene(0);
     }
 }

@@ -85,6 +85,8 @@ public class InGameConfigMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(0);
         AudioManager.instance.PlayOneShot(FMODEvents.Instance.playSFX, this.transform.position); // Som do botao
 
+        GameObject.Destroy(gameObject);
+
     }
 
     private void SetFillSlider(Slider slider)

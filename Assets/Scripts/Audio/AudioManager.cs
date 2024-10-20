@@ -6,9 +6,10 @@ using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
 {
-    private static AudioManager _instance;
     private List<EventInstance> eventInstances;
     public static AudioManager instance { get=>_instance; }
+    private static AudioManager _instance;
+
     private EventInstance _eventInstance;
     private void Awake()
     {

@@ -26,8 +26,9 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Game Background")]
     [field: SerializeField] public EventReference gameBackground { get; private set; }
 
-    public static FMODEvents _instance {get; private set;}
     public static FMODEvents Instance { get=>_instance;}
+    public static FMODEvents _instance;
+
     private void Awake ()
     { 
         if (Instance == null)

@@ -11,15 +11,8 @@ using UnityEditor.UIElements;
 
 public class ConfigMenu : MonoBehaviour
 {
-    public static ConfigMenu instance;
-
     private Slider uxmlMusicSlider;
     private Slider uxmlSfxSlider;
-
-    private void Awake()
-    {
-        instance = this;
-    }
 
     private void Start()
     {

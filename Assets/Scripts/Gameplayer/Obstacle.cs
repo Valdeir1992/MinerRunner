@@ -13,7 +13,7 @@ public class Obstacle:MonoBehaviour
     {
         if(collider.TryGetComponent(out PlayerMediator player))
         {
-            player.TakeDamage(3); //Mudei para 3 para facilitar os testes
+            player.TakeDamage(1); 
         }
         Release();
     }

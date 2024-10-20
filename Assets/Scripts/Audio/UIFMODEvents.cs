@@ -17,14 +17,21 @@ public class UIFMODEvents : MonoBehaviour
     [field: Header("UI Background")]
     [field: SerializeField] public EventReference uiBackground { get; private set; }
 
-    public static UIFMODEvents instance { get; private set; }
+    public static UIFMODEvents instance { get => _instance; }
+    private static UIFMODEvents _instance;
+
+
     private void Awake()
     {
-        if (instance == null)
+        if (_instance == null)
         {
-            Debug.LogError("Mais de um FMODEvents em cena");
+            _instance = this;
+        }
+        else if (_instance != this)
+        {
+            Debug.LogError("Mais de um UI Audio Manager em cena");
+            Destroy(gameObject);
         }
 
-        instance = this;
     }
 }

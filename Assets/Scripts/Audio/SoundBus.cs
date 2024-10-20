@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class SoundBus : MonoBehaviour
 {
-    public static SoundBus instance;
+    public static SoundBus instance { get => _instance; }
+    private static SoundBus _instance;
 
     FMOD.Studio.Bus musicBus;
     FMOD.Studio.Bus sfxBus;
@@ -15,8 +16,16 @@ public class SoundBus : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
-       
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else if (_instance != this)
+        {
+            Debug.LogError("Mais de um Audio Manager na cena");
+            Destroy(gameObject);
+        }
+
     }
 
     private void Start()
