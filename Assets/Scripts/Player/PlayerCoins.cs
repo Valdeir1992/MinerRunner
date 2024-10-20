@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerCoins:MonoBehaviour
 {
-    private int money;
+    private int money = 0;
 
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("coins", 0); // Valor inicial é 0
+        PlayerPrefs.SetInt("coins", money); // Valor inicial é o mesmo de "money"
     }
 
     public void AddCoin(int coinValue)
@@ -17,6 +17,8 @@ public class PlayerCoins:MonoBehaviour
         money = PlayerPrefs.GetInt("coins"); // Define o valor de "money" como o de "coins"
         PlayerPrefs.SetInt("coins", money += coinValue); // Define novo valor de "coins"
         PlayerPrefs.Save(); // Salva o novo valor
+
+        CoinsText.Instance.ShowCoins();
 
     }
 }

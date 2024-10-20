@@ -11,14 +11,23 @@ using UnityEditor.UIElements;
 
 public class InGameConfigMenu : MonoBehaviour
 {
-    public static InGameConfigMenu instance;
+    private static InGameConfigMenu Instance { get => _instance; }
+    public static InGameConfigMenu _instance;
 
     private Slider uxmlMusicSlider;
     private Slider uxmlSfxSlider;
 
     private void Awake()
     {
-        instance = this;
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (_instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()

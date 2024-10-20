@@ -22,14 +22,13 @@ public class CollectibleCoin : MonoBehaviour
         {
             Collect();
             AudioManager.instance.PlayOneShot(FMODEvents.Instance.coinCollectSFX, this.transform.position);
+
+            _playerCoins?.AddCoin(1);
+            Debug.Log("DINHEIRO: " + PlayerPrefs.GetInt("coins"));
         }
         Release();
 
-        if (_playerCoins != null)
-        {
-            _playerCoins.AddCoin(1);
-        }
-        Debug.Log(PlayerPrefs.GetInt("coins"));
+        
     }
     private void Collect()
     {
