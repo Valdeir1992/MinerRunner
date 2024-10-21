@@ -1,0 +1,16 @@
+{b1973c16-a322-494e-879a-1c7ec89fa9a8} bank:/Ambiance
+{298a1cc2-d259-050c-01d3-9680396caf30} bank:/Ambiance.strings
+{39b8f997-b76a-4729-ae12-392daec46a95} bank:/Character
+{8b44743f-8854-4a92-a39c-48c400ff2840} bank:/Music
+{631087df-5b36-43ec-a528-c839dc080616} bank:/UI
+{ce7bc4a1-7573-4d47-a9b8-740233dcd917} bus:/
+{818b44e3-0a65-4a14-864c-996c3d35208a} bus:/Reverb
+{88560ca1-f71d-4144-be38-72da1db395b6} event:/Ambiance/falling_rocks_sound
+{4907ea38-f78a-42be-9496-8f4a56489f2b} event:/Ambiance/wood_crashing_sound
+{3f83fa28-1790-4c4e-bca4-40c4b1a92e28} event:/Character/cart_jump_sound
+{d0a832f8-fc2e-4086-bb13-03cb9a2506de} event:/Character/coin_sound
+{7a3717c4-9aaf-462b-be75-944e6aae4faa} event:/Character/mining_cart_rolling
+{4452ec40-d9a9-4d98-94c6-fdd460812eeb} event:/Music/loop_music_gameplay
+{aa7dd280-6e6e-42d7-9fc1-c29fd194d406} event:/UI/sfx_UI_back
+{49021930-edb4-434b-bbea-691deeeabf59} event:/UI/sfx_UI_click
+{fe7ec407-43de-404a-a4ec-a0735bf928d4} event:/UI/sfx_start_game

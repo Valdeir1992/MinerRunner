@@ -217,7 +217,7 @@ MonoBehaviour:
   Path: ../../../Downloads/MINERSMASS_RUNNER_VUKI_SFX/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638621182206125616
+  lastModified: 638650551786156711
   FileSizes:
   - Name: Desktop
     Value: 2430624
@@ -303,7 +303,7 @@ MonoBehaviour:
   - {fileID: -512979188954016442}
   StringsBanks:
   - {fileID: -7625056211136013110}
-  cacheTime: 638621182206513290
+  cacheTime: 638650551786156711
   cacheVersion: 131618
 --- !u!114 &1563143263160474882
 MonoBehaviour:

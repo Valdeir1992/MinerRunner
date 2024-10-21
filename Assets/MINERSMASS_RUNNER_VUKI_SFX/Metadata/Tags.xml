@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MasterTagFolder" id="{17953e7a-1cdd-4f32-81a0-e22095b2b438}">
+		<property name="name">
+			<value>Master</value>
+		</property>
+	</object>
+</objects>
